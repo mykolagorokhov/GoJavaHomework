@@ -6,6 +6,7 @@ package modul01.task011;
 public class Fifth {
     public static void main(String[] args) {
 
-        System.out.println("Мой пятый класс на Java");}
+        System.out.println("Мой пятый класс на Java");
+    }
 
 }

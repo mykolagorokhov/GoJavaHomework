@@ -6,6 +6,7 @@ package modul01.task011;
 public class SecondClass {
     public static void main(String[] args) {
 
-        System.out.println("Мой второй класс на Java");}
+        System.out.println("Мой второй класс на Java");
+    }
 
 }
