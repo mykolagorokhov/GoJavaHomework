@@ -10,7 +10,7 @@ public class BalanceFound {
 
         int[] balances = {1200, 250, 2000, 500, 3200};
         String[] ownerNames = {"Jane", "Ann", "Jack", "Oww", "Lane"};
-        String ownerName = "Lane";
+        String ownerName = "Ann";
         double withdrawal = 100;
 
         BalanceFound balanceClass = new BalanceFound();

@@ -1,5 +1,7 @@
 package modul02.task021;
 
+import java.util.Arrays;
+
 /**
  * Created by MYKOLA.GOROKHOV on 30.01.2017.
  * ЗАДАНИЕ 1
@@ -25,8 +27,8 @@ package modul02.task021;
 public class WorkWithArrays {
     public static void main(String[] args) {
 
-        int[] array = {-11, 22, -33, -44, -55, -66, -77, -88, -99, -101};
-        //double[] array = {1.1, 2.2, -3.3, -4.4, -5.5, 6.6, -7.7, -8.8, -99, -10.1};
+        //int[] array = {-11, 22, -33, -44, -55, -66, -77, -88, -99, -101};
+        double[] array = {1.1, 2.2, -3.3, -4.4, -5.5, 6.6, -7.7, -8.8, -99, -10.1};
 
         WorkWithArrays myClass = new WorkWithArrays();
 
@@ -41,7 +43,7 @@ public class WorkWithArrays {
 
     //----------------Методы для Integer-----------------------------
     public void secondLargest(int[] array) {
-        int[] sortedArray = array;
+        int[] sortedArray = array.clone();
 
         for (int i = sortedArray.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -53,6 +55,10 @@ public class WorkWithArrays {
             }
         }
         System.out.println("Второе наибольшее= " + sortedArray[sortedArray.length - 2]);
+        System.out.println("sorted array= " + Arrays.toString(sortedArray));
+        System.out.println("initial array= " + Arrays.toString(array));
+
+
     }
 
     public void modulus(int[] array) {
@@ -117,7 +123,7 @@ public class WorkWithArrays {
 
     //----------------Методы для Double-----------------------------
     public void secondLargest(double[] array) {
-        double[] sortedArray = array;
+        double[] sortedArray = array.clone();
 
         for (int i = sortedArray.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -129,6 +135,10 @@ public class WorkWithArrays {
             }
         }
         System.out.println("Второе наибольшее= " + sortedArray[sortedArray.length - 2]);
+        System.out.println("sorted array= " + Arrays.toString(sortedArray));
+        System.out.println("initial array= " + Arrays.toString(array));
+
+
     }
 
     public void modulus(double[] array) {
