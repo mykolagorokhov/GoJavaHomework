@@ -11,8 +11,7 @@ package modul03.task031;
  * I am Bird
  */
 public class Bird {
-    private String string = "I am walking\nI am flying\nI am singing\nI am Bird";
-    private String BirdName;
+    final private String string = "I am walking\nI am flying\nI am singing\nI am Bird";
 
     public static void main(String[] args) {
 

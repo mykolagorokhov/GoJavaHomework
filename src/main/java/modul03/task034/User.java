@@ -115,6 +115,7 @@ public class User {
         System.out.println("companyName = " + user1.getCompanyName());
         System.out.println("salary = " + user1.getSalary());
         System.out.println("currency = " + user1.getCurrency());
+        System.out.println();
 
         user1.withdraw(1001);
         System.out.println("-------withdraw-----");
@@ -124,9 +125,11 @@ public class User {
         System.out.println("companyName = " + user1.getCompanyName());
         System.out.println("salary = " + user1.getSalary());
         System.out.println("currency = " + user1.getCurrency());
+        System.out.println();
 
         System.out.println("-------companyNameLenght-----");
         System.out.println("companyNameLenght = " + user1.companyNameLenght());
+        System.out.println();
 
         user1.monthIncreaser(2);
         System.out.println("-------monthIncreaser-----");
