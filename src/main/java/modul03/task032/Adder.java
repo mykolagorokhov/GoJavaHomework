@@ -15,7 +15,7 @@ package modul03.task032;
  */
 public class Adder extends Arithmetic {
 
-    public static boolean check(Integer a, Integer b) {
+    public boolean check(Integer a, Integer b) {
         return a >= b;
     }
 }

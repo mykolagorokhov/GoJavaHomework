@@ -57,8 +57,7 @@ public class Solution {
 
         CollegeStudent collegeStudent1 = new CollegeStudent("FN", "LN", 1);
         CollegeStudent collegeStudent2 = new CollegeStudent("LN", coursesTaken);
-        CollegeStudent collegeStudent3 = new CollegeStudent("FN", "LN", 2,
-                "CN", 100, 123465);
+        CollegeStudent collegeStudent3 = new CollegeStudent("CN", 100, 123465);
 
         System.out.println();
         System.out.println("CollegeStudent1");
@@ -74,33 +73,31 @@ public class Solution {
 
         System.out.println();
         System.out.println("CollegeStudent3");
-        System.out.println(
-                "firstName=" + collegeStudent3.getFirstName() + "; lastName= " + collegeStudent3.getLastName() + "; group= "
-                        + collegeStudent3.getGroup() + "; collegeName= " + collegeStudent3.getCollegeName() +
-                        "; rating= " + collegeStudent3.getRating() + "; id= " + collegeStudent3.getId());
+        System.out.println("collegeName= " + collegeStudent3.getCollegeName() + "; rating= " + collegeStudent3.getRating() + "; id= " + collegeStudent3.getId());
 
 
-        SpecialStudent specialStudent1 = new SpecialStudent("FN", "LN", 2,
-                "CN", 100, 123465);
-        SpecialStudent specialStudent2 = new SpecialStudent("FN", "LN", 1);
-        SpecialStudent specialStudent3 = new SpecialStudent("FN", "LN", 3, "CN",
-                99, 321654, 1111);
+        SpecialStudent specialStudent1 = new SpecialStudent("FN", "LN", 1, 654321, "m@gmail.com");
+        SpecialStudent specialStudent3 = new SpecialStudent("LN", coursesTaken, 654321, "n@gmail.com");
+        SpecialStudent specialStudent2 = new SpecialStudent(1111);
         System.out.println();
         System.out.println("specialStudent1");
         System.out.println(
                 "firstName=" + specialStudent1.getFirstName() + "; lastName= " + specialStudent1.getLastName() + "; group= "
-                        + specialStudent1.getGroup() + "; collegeName= " + specialStudent1.getCollegeName() +
-                        "; rating= " + specialStudent1.getRating() + "; id= " + specialStudent1.getId());
+                        + specialStudent1.getGroup() + "; secretKey= " + specialStudent1.getSecretKey() +
+                        "; email= " + specialStudent1.getEmail());
         System.out.println();
         System.out.println("specialStudent2");
-        System.out.println("FN = " + specialStudent2.getFirstName() + "; LN=  " + specialStudent2.getLastName() + "; group= " + specialStudent2.getGroup());
+        System.out.println("secretKey = " + specialStudent2.getSecretKey());
         System.out.println();
         System.out.println("specialStudent3");
-        System.out.println(
-                "firstName=" + specialStudent3.getFirstName() + "; lastName= " + specialStudent3.getLastName() + "; group= "
-                        + specialStudent3.getGroup() + "; collegeName= " + specialStudent3.getCollegeName() +
-                        "; rating= " + specialStudent3.getRating() + "; id= " + specialStudent3.getId() + "; secretKey= " +
-                        specialStudent3.getSecretKey());
+        System.out.print(
+                "lastName= " + specialStudent3.getLastName());
+        System.out.print("; CourseTaken= ");
+        for (int i = 0; i < coursesTaken.length; i++) {
+            System.out.print(specialStudent3.getCoursesTaken()[i].getName() + " ;");
+        }
+
+        System.out.print("; secretKey= " + specialStudent3.getSecretKey() + "; email= " + specialStudent3.getEmail());
 
 
     }

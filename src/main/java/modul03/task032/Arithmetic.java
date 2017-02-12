@@ -25,7 +25,7 @@ public class Arithmetic {
         System.out.println("check thru Adder = " + b.check(100, 200));
     }
 
-    public static int add(Integer a, Integer b) {
+    public int add(Integer a, Integer b) {
         return a + b;
     }
 }
