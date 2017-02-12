@@ -11,7 +11,7 @@ package modul03.task031;
  * I am Bird
  */
 public class Bird {
-    final private String string = "I am walking\nI am flying\nI am singing\nI am Bird";
+    final private String STRING = "I am walking\nI am flying\nI am singing\nI am Bird";
 
     public static void main(String[] args) {
 
@@ -33,7 +33,7 @@ public class Bird {
     }
 
     public void sing() {
-        System.out.println(string);
+        System.out.println(STRING);
     }
 }
 
