@@ -82,63 +82,52 @@ public class User {
     }
 
     void paySalary() { //- добавляет заработную плату к балансу пользователя
-        setBalance(getSalary() + getBalance());
+        System.out.println("добавляет заработную плату к балансу пользователя");
+        this.setBalance(getSalary() + this.getBalance());
+        System.out.println("New balance =" + this.getBalance());
     }
 
     public void withdraw(int summ) {
         //- снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях
-
         if (summ < 1000) {
-            setBalance((int) Math.round(getBalance() - (summ * 0.05)) - summ);
+            this.setBalance((int) Math.round(this.getBalance() - (summ * 0.05)) - summ);
         } else {
-            setBalance((int) Math.round(getBalance() - (summ * 0.1)) - summ);
+            this.setBalance((int) Math.round(this.getBalance() - (summ * 0.1)) - summ);
         }
+
+        System.out.println("снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях");
+        System.out.println("New ballance = " + this.getBalance());
     }
 
-    public int companyNameLenght() {//companyNameLenght - вычисляет длину имя компании
-        return getCompanyName().length();
+    public void companyNameLenght() {//companyNameLenght - вычисляет длину имя компании
+        System.out.println("companyNameLenght - вычисляет длину имя компании");
+        System.out.println("companyNameLenght = " + this.getCompanyName().length());
     }
 
     public void monthIncreaser(int addMonth) { // - увеличивает monthsOfEmployment на addMonth
-        setMonthsOfEmployment(getMonthsOfEmployment() + addMonth);
+        System.out.println("увеличивает monthsOfEmployment на addMonth");
+        this.setMonthsOfEmployment(this.getMonthsOfEmployment() + addMonth);
+        System.out.println("monthIncreaser = " + this.getMonthsOfEmployment());
     }
 
     //******************MAIN******************************
     public static void main(String[] args) {
         User user1 = new User("User1", 10000, 10, "Google", 20, "USD");
 
-        user1.paySalary();
         System.out.println("-------PaySalary-----");
-        System.out.println("Name = " + user1.getName());
-        System.out.println("balance = " + user1.getBalance());
-        System.out.println("monthsOfEmployment = " + user1.getMonthsOfEmployment());
-        System.out.println("companyName = " + user1.getCompanyName());
-        System.out.println("salary = " + user1.getSalary());
-        System.out.println("currency = " + user1.getCurrency());
+        user1.paySalary();
         System.out.println();
 
-        user1.withdraw(1001);
         System.out.println("-------withdraw-----");
-        System.out.println("Name = " + user1.getName());
-        System.out.println("balance = " + user1.getBalance());
-        System.out.println("monthsOfEmployment = " + user1.getMonthsOfEmployment());
-        System.out.println("companyName = " + user1.getCompanyName());
-        System.out.println("salary = " + user1.getSalary());
-        System.out.println("currency = " + user1.getCurrency());
+        user1.withdraw(1001);
         System.out.println();
 
         System.out.println("-------companyNameLenght-----");
-        System.out.println("companyNameLenght = " + user1.companyNameLenght());
+        user1.companyNameLenght();
         System.out.println();
 
-        user1.monthIncreaser(2);
         System.out.println("-------monthIncreaser-----");
-        System.out.println("Name = " + user1.getName());
-        System.out.println("balance = " + user1.getBalance());
-        System.out.println("monthsOfEmployment = " + user1.getMonthsOfEmployment());
-        System.out.println("companyName = " + user1.getCompanyName());
-        System.out.println("salary = " + user1.getSalary());
-        System.out.println("currency = " + user1.getCurrency());
+        user1.monthIncreaser(2);
     }
     //******************MAIN******************************
 
