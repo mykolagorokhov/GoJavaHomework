@@ -24,7 +24,7 @@ import java.util.Arrays;
 public class DoubleArrayFiller {
     public static void main(String[] args) {
         DoubleArrayFiller doubleArray = new DoubleArrayFiller();
-        int[][] testArray = doubleArray.getFilledArray(5, 4);
+        int[][] testArray = doubleArray.getFilledArray(10, 5);
         for (int i = 0; i < testArray.length; i++) {
             System.out.println(Arrays.toString(testArray[i]));
         }
@@ -40,5 +40,4 @@ public class DoubleArrayFiller {
         }
         return resultArray;
     }
-
 }

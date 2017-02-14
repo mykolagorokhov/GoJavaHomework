@@ -22,6 +22,9 @@ public class User {
     private String companyName;
     private int salary;
     private String currency;
+    static final double COMIITION_MIN = 5; // 5%
+    static final double COMIITION_MAX = 10; //10%
+    static final double DELIMITER = 1000;
 
 
     public User(String name, int balance, int monthsOfEmployment, String companyName, int salary, String currency) {
@@ -89,13 +92,20 @@ public class User {
 
     public void withdraw(int summ) {
         //- снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях
-        if (summ < 1000) {
-            this.setBalance((int) Math.round(this.getBalance() - (summ * 0.05)) - summ);
+        System.out.println("снимает деньги с баланса (Если можно) с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях");
+        System.out.println("withdraw = "+ summ);
+        int a;
+        if (summ < DELIMITER) {
+            a = (int) Math.round((summ * COMIITION_MIN / 100) + summ);
         } else {
-            this.setBalance((int) Math.round(this.getBalance() - (summ * 0.1)) - summ);
+            a = (int) Math.round((summ * COMIITION_MAX / 100) + summ);
         }
 
-        System.out.println("снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях");
+        if (a > this.balance) {
+            System.out.println("Out of Balance. Balance not change");
+        } else {
+            balance = balance - a;
+        }
         System.out.println("New ballance = " + this.getBalance());
     }
 
@@ -106,6 +116,7 @@ public class User {
 
     public void monthIncreaser(int addMonth) { // - увеличивает monthsOfEmployment на addMonth
         System.out.println("увеличивает monthsOfEmployment на addMonth");
+        System.out.println("addMonth = "+addMonth);
         this.setMonthsOfEmployment(this.getMonthsOfEmployment() + addMonth);
         System.out.println("monthIncreaser = " + this.getMonthsOfEmployment());
     }
@@ -115,18 +126,23 @@ public class User {
         User user1 = new User("User1", 10000, 10, "Google", 20, "USD");
 
         System.out.println("-------PaySalary-----");
+        System.out.println("BalanceBefore = " + user1.getBalance());
+        System.out.println("Salary = " + user1.salary);
         user1.paySalary();
         System.out.println();
 
         System.out.println("-------withdraw-----");
-        user1.withdraw(1001);
+        System.out.println("BalanceBefore = " + user1.getBalance());
+        user1.withdraw(101);
         System.out.println();
 
         System.out.println("-------companyNameLenght-----");
+        System.out.println("CompanyName = " + user1.companyName);
         user1.companyNameLenght();
         System.out.println();
 
         System.out.println("-------monthIncreaser-----");
+        System.out.println("MonthBefore = " + user1.getMonthsOfEmployment());
         user1.monthIncreaser(2);
     }
     //******************MAIN******************************
