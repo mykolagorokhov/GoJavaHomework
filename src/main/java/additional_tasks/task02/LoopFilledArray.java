@@ -65,7 +65,7 @@ public class LoopFilledArray {
                 }
             }
 
-// уменьшаем массиы
+// уменьшаем массив
             startX++;
             startY++;
             sizeX--;

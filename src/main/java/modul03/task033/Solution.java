@@ -90,8 +90,7 @@ public class Solution {
         System.out.println("secretKey = " + specialStudent2.getSecretKey());
         System.out.println();
         System.out.println("specialStudent3");
-        System.out.print(
-                "lastName= " + specialStudent3.getLastName());
+        System.out.print("lastName= " + specialStudent3.getLastName());
         System.out.print("; CourseTaken= ");
         for (int i = 0; i < coursesTaken.length; i++) {
             System.out.print(specialStudent3.getCoursesTaken()[i].getName() + " ;");
