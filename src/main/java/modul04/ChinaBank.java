@@ -16,7 +16,6 @@ public class ChinaBank extends Bank {
 //    комиссия 3%, если USD и до 1000, 5%, если USD и больше 1000
 //            10%, если EUR и до 1000 и 11%, если EUR и больше 1000
 
-
     public final int WITHDRAWALLIMIT_USD = 100;
     public final int WITHDRAWALLIMIT_EUR = 150;
 

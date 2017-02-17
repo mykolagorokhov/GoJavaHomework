@@ -5,11 +5,11 @@ package modul04;
  */
 public class Main {
     public static void main(String[] args) {
-        USBank usBank1 = new USBank
+        Bank usBank1 = new USBank
                 (1, "USA", Currency.USD, 2, 100, 1, 1000000);
-        EUBank euBank1 = new EUBank
+        Bank euBank1 = new EUBank
                 (2, "Ukraine", Currency.EUR, 2, 100, 1, 1000000);
-        ChinaBank chinaBank1 = new ChinaBank
+        Bank chinaBank1 = new ChinaBank
                 (3, "China", Currency.USD, 2, 100, 1, 1000000);
 
         User user_1_USBank = new User(1, "N1", 2000, 3, "CN_N1", 100, usBank1);
@@ -21,6 +21,10 @@ public class Main {
         User user_1_ChinaBank = new User(5, "N5", 2000, 3, "CN_N5", 100, chinaBank1);
         User user_2_ChinaBank = new User(6, "N6", 2000, 3, "CN_N6", 100, chinaBank1);
 
+
+        BankSystem bankSystem = new BankSystemImpl();
+
+
         System.out.println(user_1_USBank.toString());
         System.out.println(user_2_USBank.toString());
         System.out.println(user_1_EUBank.toString());
@@ -28,15 +32,15 @@ public class Main {
         System.out.println(user_1_ChinaBank.toString());
         System.out.println(user_2_ChinaBank.toString());
 
-        System.out.println(
-                "bankCountry: '" + euBank1.bankCountry +
-                        "', ID: '" + euBank1.getId() +
-                        "', Commission: '" + euBank1.getCommission(5) +
-                        "'");
 
-        System.out.print("AvrSalaryOfEmployee: ");
-        euBank1.getAvrSalaryOfEmployee();
+        System.out.println();
+        bankSystem.withdrawOfUser(user_1_EUBank, 1000);
+        System.out.println();
+        bankSystem.fundUser(user_1_EUBank, 50);
+        System.out.println();
+        bankSystem.transferMoney(user_1_EUBank, user_2_EUBank, 770);
+        System.out.println();
+        bankSystem.paySalary(user_1_EUBank);
 
-        System.out.println(euBank1.moneyPaidMonthlyForSalary());
     }
 }

@@ -14,6 +14,7 @@ public class EUBank extends Bank {
 //    комиссия 5%, если USD и до 1000, 7%, если USD и больше 1000
 //            2%, если EUR и до 1000 и 4%, если EUR и больше 1000
 
+
     public final int WITHDRAWALLIMIT_USD = 2000;
     public final int WITHDRAWALLIMIT_EUR = 2200;
 

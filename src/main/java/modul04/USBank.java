@@ -15,6 +15,7 @@ public class USBank extends Bank {
 //    комиссия 5%, если USD и до 1000, 7%, если USD и больше 1000
 //            6%, если EUR и до 1000 и 8%, если EUR и больше 1000
 
+
     public final int WITHDRAWALLIMIT_USD = 1000;
     public final int WITHDRAWALLIMIT_EUR = 1000;
 

@@ -23,13 +23,16 @@ public abstract class Bank {
         this.totalCapital = totalCapital;
     }
 
+    abstract int getLimitOfWithdrawal();
+    abstract int getLimitOfFunding();
+    abstract int getMonthlyRate();
+    abstract int getCommission(int summ);
 
 // ----------------------------------------------------
     double moneyPaidMonthlyForSalary() {
         return avrSalaryOfEmployee * numberOfEmployees;
     }
 // ----------------------------------------------------
-
 
     public long getId() {
         return id;
