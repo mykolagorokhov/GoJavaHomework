@@ -6,8 +6,6 @@ package modul04;
 public class BankSystemImpl implements BankSystem {
 
     public void withdrawOfUser(User user, int amount) {
-
-
     }
 
     public void fundUser(User user, int amount) {

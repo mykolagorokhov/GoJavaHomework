@@ -21,7 +21,6 @@ public class Main {
         User user_1_ChinaBank = new User(5, "N5", 2000, 3, "CN_N5", 100, chinaBank1);
         User user_2_ChinaBank = new User(6, "N6", 2000, 3, "CN_N6", 100, chinaBank1);
 
-
         System.out.println(user_1_USBank.toString());
         System.out.println(user_2_USBank.toString());
         System.out.println(user_1_EUBank.toString());
@@ -29,8 +28,15 @@ public class Main {
         System.out.println(user_1_ChinaBank.toString());
         System.out.println(user_2_ChinaBank.toString());
 
-        System.out.println();
+        System.out.println(
+                "bankCountry: '" + euBank1.bankCountry +
+                        "', ID: '" + euBank1.getId() +
+                        "', Commission: '" + euBank1.getCommission(5) +
+                        "'");
 
+        System.out.print("AvrSalaryOfEmployee: ");
+        euBank1.getAvrSalaryOfEmployee();
 
+        System.out.println(euBank1.moneyPaidMonthlyForSalary());
     }
 }

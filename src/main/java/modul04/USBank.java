@@ -9,58 +9,72 @@ public class USBank extends Bank {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
-
-//    USBank: лимит снятия = 1000, если валюта - USD и 1200, если валюта - EUR
+//    USBank: лимит снятия = 1000, если валюта - USD и 1000, если валюта - EUR
 //    лимит пополнения - 10000, если EUR, и нет лимита, если USD
 //    месячная ставка - 1% на USD и 2% на EUR
 //    комиссия 5%, если USD и до 1000, 7%, если USD и больше 1000
 //            6%, если EUR и до 1000 и 8%, если EUR и больше 1000
 
-    //------------------------------------
+    public final int WITHDRAWALLIMIT_USD = 1000;
+    public final int WITHDRAWALLIMIT_EUR = 1000;
 
+    public final int FUNDINGLIMIT_USD = Integer.MAX_VALUE;
+    public final int FUNDINGLIMIT_EUR = 10000;
+
+    public final int MONTHLYRATE_USD = 0;
+    public final int MONTHLYRATE_EUR = 1;
+
+    public final int COMISSION_MIN_USD = 5;
+    public final int COMISSION_MAX_USD = 7;
+
+    public final int COMISSION_MIN_EUR = 6;
+    public final int COMISSION_MAX_EUR = 8;
+    public final int COMISSION_LIM = 1000;
+
+
+    // ---------------------------------------------------
     int getLimitOfWithdrawal() {
         if (currency == Currency.USD) {
-            return 1000;
+            return WITHDRAWALLIMIT_USD;
         } else {
-            return 1200;
+            return WITHDRAWALLIMIT_EUR;
         }
-
     }
+
 
     int getLimitOfFunding() {
         if (currency == Currency.USD) {
-            return Integer.MAX_VALUE;
+            return FUNDINGLIMIT_USD;
         } else {
-            return 10000;
+            return FUNDINGLIMIT_EUR;
         }
     }
 
     int getMonthlyRate() {
         if (currency == Currency.USD) {
-            return 1;
+            return MONTHLYRATE_USD;
         } else {
-            return 2;
+            return MONTHLYRATE_EUR;
         }
     }
 
     int getCommission(int summ) {
 
         if (currency == Currency.USD) {
-            if (summ < 1000){return 5;}else{return 7;}
+            if (summ < COMISSION_LIM) {
+                return COMISSION_MIN_USD;
+            } else {
+                return COMISSION_MAX_USD;
+            }
         } else {
-            if (summ < 1000){return 6;}else{return 8;}        }
+            if (summ < COMISSION_LIM) {
+                return COMISSION_MIN_EUR;
+            } else {
+                return COMISSION_MAX_EUR;
+            }
+        }
     }
-
-    double  moneyPaidMonthlyForSalary() {
-        return avrSalaryOfEmployee*numberOfEmployees;
-    }
-
-// ----------------------------------------------------
-
-
-
-
-
+// ---------------------------------------------------
 
 
 }

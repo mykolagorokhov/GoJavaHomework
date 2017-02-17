@@ -94,6 +94,7 @@ public class User {
         //- снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях
         System.out.println("снимает деньги с баланса (Если можно) с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях");
         System.out.println("withdraw = "+ summ);
+
         int a;
         if (summ < DELIMITER) {
             a = (int) Math.round((summ * COMIITION_MIN / 100) + summ);

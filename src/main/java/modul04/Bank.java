@@ -4,6 +4,7 @@ package modul04;
  * Created by MYKOLA.GOROKHOV on 16.02.2017.
  */
 public abstract class Bank {
+
     long id;
     String bankCountry;
     Currency currency;
@@ -21,6 +22,14 @@ public abstract class Bank {
         this.rating = rating;
         this.totalCapital = totalCapital;
     }
+
+
+// ----------------------------------------------------
+    double moneyPaidMonthlyForSalary() {
+        return avrSalaryOfEmployee * numberOfEmployees;
+    }
+// ----------------------------------------------------
+
 
     public long getId() {
         return id;

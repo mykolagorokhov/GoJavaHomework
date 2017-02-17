@@ -32,7 +32,6 @@ public class User {
                 "', Company Name: '" + this.companyName +
                 "', Salary: '" + this.salary +
                 "', Bank: '" + this.bank.bankCountry + "'";
-
     }
 
 
