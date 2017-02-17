@@ -7,8 +7,8 @@ public class BankSystemImpl implements BankSystem {
 
     public void withdrawOfUser(User user, int amount) {
         System.out.println(user.name + " balance before withdraw = " + user.balance);
-        if ((user.bank).getLimitOfWithdrawal() > amount) {
-            user.balance = user.balance - amount - amount * (user.bank).getCommission(amount) / 100;
+        if (user.bank.getLimitOfWithdrawal() > amount) {
+            user.balance = user.balance - amount - amount * user.bank.getCommission(amount) / 100;
             System.out.println(user.name + " balance after " + amount + " " + user.bank.getCurrency() + " withdraw = " + user.balance);
         } else {
             System.out.println("ERROR - LimitOfWithdrawal");
@@ -18,7 +18,7 @@ public class BankSystemImpl implements BankSystem {
 
     public void fundUser(User user, int amount) {
         System.out.println(user.name + " balance before Funding = " + user.balance);
-        if ((user.bank).getLimitOfFunding() < amount) {
+        if (user.bank.getLimitOfFunding() < amount) {
             System.out.println("ERROR - LimitOfFunding");
 
         } else {

@@ -5,13 +5,13 @@ package modul04;
  */
 public class User {
 
-   long id;
-  String name;
-  double balance;
-  int monthsOfEmployment;
-  String companyName;
-  int salary;
-  Bank bank;
+    public long id;
+    public String name;
+    public double balance;
+    public int monthsOfEmployment;
+    public String companyName;
+    public int salary;
+    public Bank bank;
 
     public User(long id, String name, double balance, int monthsOfEmployment, String companyName, int salary, Bank bank) {
         this.id = id;
@@ -31,7 +31,7 @@ public class User {
                 "', Months Of Employment: '" + this.monthsOfEmployment +
                 "', Company Name: '" + this.companyName +
                 "', Salary: '" + this.salary +
-                "', Bank: '" + this.bank.bankCountry + "'";
+                "', Bank: '" + this.bank.getBankCountry() + "'";
     }
 
 

@@ -33,7 +33,7 @@ public class EUBank extends Bank {
 
     // ---------------------------------------------------
     int getLimitOfWithdrawal() {
-        if (currency == Currency.USD) {
+        if (getCurrency() == Currency.USD) {
             return WITHDRAWALLIMIT_USD;
         } else {
             return WITHDRAWALLIMIT_EUR;
@@ -42,7 +42,7 @@ public class EUBank extends Bank {
 
 
     int getLimitOfFunding() {
-        if (currency == Currency.USD) {
+        if (getCurrency() == Currency.USD) {
             return FUNDINGLIMIT_USD;
         } else {
             return FUNDINGLIMIT_EUR;
@@ -50,7 +50,7 @@ public class EUBank extends Bank {
     }
 
     int getMonthlyRate() {
-        if (currency == Currency.USD) {
+        if (getCurrency() == Currency.USD) {
             return MONTHLYRATE_USD;
         } else {
             return MONTHLYRATE_EUR;
@@ -59,7 +59,7 @@ public class EUBank extends Bank {
 
     int getCommission(int summ) {
 
-        if (currency == Currency.USD) {
+        if (getCurrency() == Currency.USD) {
             if (summ < COMISSION_LIM) {
                 return COMISSION_MIN_USD;
             } else {
