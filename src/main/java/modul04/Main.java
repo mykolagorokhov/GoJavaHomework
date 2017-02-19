@@ -21,10 +21,9 @@ public class Main {
         User user_1_ChinaBank = new User(5, "N5", 2000, 3, "CN_N5", 100, chinaBank1);
         User user_2_ChinaBank = new User(6, "N6", 2000, 3, "CN_N6", 100, chinaBank1);
 
-
         BankSystem bankSystem = new BankSystemImpl();
 
-
+        System.out.println("\u001B[31m"); //red
         System.out.println(user_1_USBank.toString());
         System.out.println(user_2_USBank.toString());
         System.out.println(user_1_EUBank.toString());
@@ -32,15 +31,18 @@ public class Main {
         System.out.println(user_1_ChinaBank.toString());
         System.out.println(user_2_ChinaBank.toString());
 
-
-        System.out.println();
+        System.out.println("\u001B[32m"); //green
         bankSystem.withdrawOfUser(user_1_EUBank, 1000);
-        System.out.println();
+
+        System.out.println("\u001B[33m");//yellow
         bankSystem.fundUser(user_1_EUBank, 50);
-        System.out.println();
+
+        System.out.println("\u001B[34m");//blue
         bankSystem.transferMoney(user_1_EUBank, user_2_EUBank, 770);
-        System.out.println();
+
+        System.out.println("\u001B[35m");//purpure
         bankSystem.paySalary(user_1_EUBank);
 
+        System.out.println("\u001B[0m"); //reset
     }
 }
