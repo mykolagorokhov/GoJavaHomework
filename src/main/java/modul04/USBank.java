@@ -16,21 +16,21 @@ public class USBank extends Bank {
 //            6%, если EUR и до 1000 и 8%, если EUR и больше 1000
 
 
-    public final int WITHDRAWALLIMIT_USD = 1000;
-    public final int WITHDRAWALLIMIT_EUR = 1000;
+    public static final int WITHDRAWALLIMIT_USD = 1000;
+    public static final int WITHDRAWALLIMIT_EUR = 1000;
 
-    public final int FUNDINGLIMIT_USD = Integer.MAX_VALUE;
-    public final int FUNDINGLIMIT_EUR = 10000;
+    public static final int FUNDINGLIMIT_USD = Integer.MAX_VALUE;
+    public static final int FUNDINGLIMIT_EUR = 10000;
 
-    public final int MONTHLYRATE_USD = 0;
-    public final int MONTHLYRATE_EUR = 1;
+    public static final int MONTHLYRATE_USD = 0;
+    public static final int MONTHLYRATE_EUR = 1;
 
-    public final int COMISSION_MIN_USD = 5;
-    public final int COMISSION_MAX_USD = 7;
+    public static final int COMISSION_MIN_USD = 5;
+    public static final int COMISSION_MAX_USD = 7;
 
-    public final int COMISSION_MIN_EUR = 6;
-    public final int COMISSION_MAX_EUR = 8;
-    public final int COMISSION_LIM = 1000;
+    public static final int COMISSION_MIN_EUR = 6;
+    public static final int COMISSION_MAX_EUR = 8;
+    public static final int COMISSION_LIM = 1000;
 
 
     // ---------------------------------------------------

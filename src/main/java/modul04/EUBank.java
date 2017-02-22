@@ -15,21 +15,21 @@ public class EUBank extends Bank {
 //            2%, если EUR и до 1000 и 4%, если EUR и больше 1000
 
 
-    public final int WITHDRAWALLIMIT_USD = 2000;
-    public final int WITHDRAWALLIMIT_EUR = 2200;
+    public static final int WITHDRAWALLIMIT_USD = 2000;
+    public static final int WITHDRAWALLIMIT_EUR = 2200;
 
-    public final int FUNDINGLIMIT_USD = 10000;
-    public final int FUNDINGLIMIT_EUR = 20000;
+    public static final int FUNDINGLIMIT_USD = 10000;
+    public static final int FUNDINGLIMIT_EUR = 20000;
 
-    public final int MONTHLYRATE_USD = 0;
-    public final int MONTHLYRATE_EUR = 1;
+    public static final int MONTHLYRATE_USD = 0;
+    public static final int MONTHLYRATE_EUR = 1;
 
-    public final int COMISSION_MIN_USD = 5;
-    public final int COMISSION_MAX_USD = 7;
+    public static final int COMISSION_MIN_USD = 5;
+    public static final int COMISSION_MAX_USD = 7;
 
-    public final int COMISSION_MIN_EUR = 2;
-    public final int COMISSION_MAX_EUR = 4;
-    public final int COMISSION_LIM = 1000;
+    public static final int COMISSION_MIN_EUR = 2;
+    public static final int COMISSION_MAX_EUR = 4;
+    public static final int COMISSION_LIM = 1000;
 
     // ---------------------------------------------------
     int getLimitOfWithdrawal() {
