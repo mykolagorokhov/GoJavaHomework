@@ -13,9 +13,8 @@ import modul05.task051.Room;
  */
 public interface DAO {
 
-  Room save(Room room);
+  void save(Room room);
   boolean delete(Room room);
   Room update(Room room);
   Room findById(long id);
-
 }

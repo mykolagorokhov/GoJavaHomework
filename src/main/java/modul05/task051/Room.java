@@ -22,9 +22,6 @@ import java.text.SimpleDateFormat;
 
 public class Room {
 
-//    public SimpleDateFormat sdf =
-//            new SimpleDateFormat("yyyy.MM.dd");
-
     private long id;
     private int price;
     private int persons;
@@ -32,22 +29,24 @@ public class Room {
     private String hotelName;
     private String cityName;
 
-   // @Override
-    public boolean equals(Room obj) {
-        // Rooms are equal when price, persons and cityName are equal.
-        if (this.price == obj.getPrice() &&
-                this.persons == obj.getPersons() &&
-                this.cityName == obj.getCityName()) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Room room = (Room) o;
+
+        if (price != room.price) return false;
+        if (persons != room.persons) return false;
+        return cityName != null ? cityName.equals(room.cityName) : room.cityName == null;
     }
 
     @Override
     public int hashCode() {
-       return Integer.parseInt( this.price+this.persons+this.cityName);
-                //super.hashCode();
+        int result = price;
+        result = 31 * result + persons;
+        result = 31 * result + (cityName != null ? cityName.hashCode() : 0);
+        return result;
     }
 
     public Room(long id, int price, int persons, Date dateAvailableFrom, String hotelName, String cityName) {

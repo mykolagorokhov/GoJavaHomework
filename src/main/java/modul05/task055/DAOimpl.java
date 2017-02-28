@@ -1,7 +1,10 @@
 package modul05.task055;
 
 import modul05.task051.Room;
+
 import modul05.task057.Main;
+
+import java.util.Arrays;
 
 /**
  * Created by MYKOLA.GOROKHOV on 22.02.2017.
@@ -14,25 +17,51 @@ import modul05.task057.Main;
  */
 public class DAOimpl implements DAO {
 
-    public Room save(Room room) {
-        System.out.println(room.getId() + " was saved");
-        return null;
+    public Room[] roomDB = new Room[10];
+
+    public void save(Room room) {
+        int count = getRoomsCount(roomDB);
+        roomDB[count] = room;
+    }
+
+    private int getRoomsCount(Room[] roomDB) {
+        int count = 0;
+        for (int i = 0; i < roomDB.length; i++) {
+            if (roomDB[i] != null) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public boolean delete(Room room) {
         System.out.println(room.getId() + " was deleted");
-        return false;
+
+        for (int i = 0; i < roomDB.length; i++) {
+            Room roomInDb = roomDB[i];
+            if (room.equals(roomInDb)) {
+                System.arraycopy(roomDB, i + 1, roomDB, i, roomDB.length - i - 1);
+                roomDB[roomDB.length - 1] = null;
+            }
+        }
+        return true;
     }
 
     public Room update(Room room) {
-        System.out.println(room.getId() + " was updated");
-        return null;
+        Room room2 = new Room(room.getId(), room.getPrice(), room.getPersons(), room.getDateAvailableFrom(), room.getHotelName(), room.getCityName());
+        return room2;
     }
 
     public Room findById(long id) {
-      //  for (int i = 0; Main.main();)
-
-        //System.out.println(room.getId()+" was findById");
+        for (Room room : roomDB) {
+            if (room != null && room.getId() == id) {
+                return room;
+            }
+        }
         return null;
+    }
+
+    public Room[] getRoomDB() {
+        return roomDB;
     }
 }

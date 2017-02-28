@@ -2,7 +2,10 @@ package modul05.task054;
 
 import modul05.task051.Room;
 import modul05.task053.API;
+import modul05.task055.DAOimpl;
 
+
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -10,19 +13,54 @@ import java.util.Date;
  */
 public class GoogleAPI implements API {
 
+    DAOimpl roomDAO = new DAOimpl();
 
-   public static       Room[] rooms = {
-                new Room(0, 1, 1, new Date(), "2", "1"),
-                new Room(1, 1, 1, new Date(), "2", "1"),
-                new Room(2, 1, 1, new Date(), "2", "1"),
-                new Room(3, 1, 1, new Date(), "2", "1"),
-                new Room(4, 1, 1, new Date(), "2", "1")};
+    public GoogleAPI() {
+        for (int i = 0; i < 5; i++) {
+            Room room = new Room(i + 10, (i + 3) * 100, 1, new Date(), "Some", "Kyiv");
+            roomDAO.save(room);
+        }
+    }
 
-
-
-
+    public Room[] getRooms() {
+        Room[] rooms = roomDAO.getRoomDB().clone();
+        return rooms;
+    }
 
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-        return new Room[0];
+
+        System.out.println("Google try to found:");
+        System.out.println(
+                "Price: " + price +
+                        "; Peresons: " + persons +
+                        "; City: " + city +
+                        "; Hotel: " + hotel +
+                        ".");
+
+
+        Room[] dataBase = new Room[5];
+        Room[] rooms = roomDAO.getRoomDB().clone();
+        int count = -1;
+        for (int i = 0; i < 5; i++) {
+            if (rooms[i].getPrice() == price && rooms[i].getPersons() == persons && rooms[i].getCityName() == city && rooms[i].getHotelName() == hotel) {
+                count++;
+                dataBase[count] = rooms[i];
+                System.out.println("Google was found:");
+
+                System.out.println(
+                        "ID: " + dataBase[count].getId() +
+                                "; Price: " + dataBase[count].getPrice() +
+                                "; Peresons: " + dataBase[count].getPersons() +
+                                "; City: " + dataBase[count].getCityName() +
+                                "; Hotel: " + dataBase[count].getHotelName() +
+                                ".");
+            }
+        }
+
+        if (dataBase[0] == null) {
+            System.out.println("Google was NOT found");
+        }
+
+        return dataBase;
     }
 }

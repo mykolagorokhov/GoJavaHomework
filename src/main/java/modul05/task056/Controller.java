@@ -3,6 +3,8 @@ package modul05.task056;
 import modul05.task051.Room;
 import modul05.task053.API;
 import modul05.task054.BookingComAPI;
+import modul05.task054.GoogleAPI;
+import modul05.task054.TripAdvisorAPI;
 
 /**
  * Created by MYKOLA.GOROKHOV on 22.02.2017.
@@ -21,14 +23,58 @@ import modul05.task054.BookingComAPI;
 public class Controller {
     API apis[] = new API[3];
 
-    //  apis[].BookingComAPI;
+    {
+        apis[0] = new BookingComAPI();
+        apis[1] = new GoogleAPI();
+        apis[2] = new TripAdvisorAPI();
+    }
+
     public Room[] requstRooms(int price, int persons, String city, String hotel) {
-        return new Room[0];
+        Room[] requst1 = apis[0].findRooms(price, persons, city, hotel);
+        Room[] requst2 = apis[1].findRooms(price, persons, city, hotel);
+        Room[] requst3 = apis[2].findRooms(price, persons, city, hotel);
+        Room[] result = new Room[30];
+
+        int count = -1;
+        for (int i = 0; i < 5; i++) {
+            if (requst1[i] != null) {
+                count++;
+                result[count] = requst1[i];
+            }
+        }
+
+        for (int i = 0; i < 5; i++) {
+            if (requst2[i] != null) {
+                count++;
+                result[count] = requst1[i];
+            }
+        }
+
+        for (int i = 0; i < 5; i++) {
+            if (requst3[i] != null) {
+                count++;
+                result[count] = requst1[i];
+            }
+        }
+        return result;
     }
 
     public Room[] check(API api1, API api2) {
-        return new Room[0];
+        Room[] result = new Room[10];
+        System.out.println("------same Room:------------");
+        int count = -1;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (api1.getRooms()[i].equals(api2.getRooms()[j]) && api1.getRooms()[i] != null && api2.getRooms()[i] != null) {
+                    count++;
+                    result[count] = api1.getRooms()[i];
+                    count++;
+                    result[count] = api2.getRooms()[j];
+                    System.out.println("Hotel ID: " + result[count - 1].getId());
+                    System.out.println("Hotel ID: " + result[count].getId());
+                }
+            }
+        }
+        return result;
     }
-
-
 }

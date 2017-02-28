@@ -2,7 +2,11 @@ package modul05.task054;
 
 import modul05.task051.Room;
 import modul05.task053.API;
+import modul05.task055.DAOimpl;
+import modul05.task057.Main;
 
+
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -10,36 +14,51 @@ import java.util.Date;
  */
 public class TripAdvisorAPI implements API {
 
+    DAOimpl roomDAO = new DAOimpl();
 
-    public static Room[] rooms = {
-            new Room(0, 1, 1, new Date(), "3", "1"),
-            new Room(1, 2, 1, new Date(), "3", "1"),
-            new Room(2, 3, 1, new Date(), "3", "1"),
-            new Room(3, 4, 1, new Date(), "3", "1"),
-            new Room(4, 5, 1, new Date(), "3", "1")};
+    public Room[] getRooms() {
+        Room[] rooms = roomDAO.getRoomDB().clone();
+        return rooms;
+    }
 
+    public TripAdvisorAPI() {
+        for (int i = 0; i < 5; i++) {
+            Room room = new Room(i + 20, (i + 7) * 100, 1, new Date(), "Some", "Kyiv");
+            roomDAO.save(room);
+        }
+    }
 
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-        int i;
-        Room[] rrr = new Room[1];
 
+        System.out.println("TripAdvisor try to found:");
+        System.out.println(
+                "Price: " + price +
+                        "; Peresons: " + persons +
+                        "; City: " + city +
+                        "; Hotel: " + hotel +
+                        ".");
 
-        for (i = 0; i < rooms.length - 1; i++) {
+        Room[] dataBase = new Room[5];
+        Room[] rooms = roomDAO.getRoomDB().clone();
+        int count = -1;
+        for (int i = 0; i < 5; i++) {
             if (rooms[i].getPrice() == price && rooms[i].getPersons() == persons && rooms[i].getCityName() == city && rooms[i].getHotelName() == hotel) {
+                count++;
+                dataBase[count] = rooms[i];
+                System.out.println("TripAdvisor was found:");
 
-                System.out.println("findRooms");
-                //Room[] rrr = new Room[1];
-                rrr[0] = rooms[i];
-                break;
-            } else {
-                continue;
-                //System.out.println("ERROR - findRooms");
-
-
+                System.out.println(
+                        "ID: " + dataBase[count].getId() +
+                                "; Price: " + dataBase[count].getPrice() +
+                                "; Peresons: " + dataBase[count].getPersons() +
+                                "; City: " + dataBase[count].getCityName() +
+                                "; Hotel: " + dataBase[count].getHotelName() +
+                                ".");
             }
         }
-
-
-        return rrr;
+        if (dataBase[0] == null) {
+            System.out.println("TripAdvisor was NOT found");
+        }
+        return dataBase;
     }
 }
