@@ -14,22 +14,17 @@ import java.util.Date;
  */
 public class TripAdvisorAPI implements API {
 
-    DAOimpl roomDAO = new DAOimpl();
-
-    public Room[] getRooms() {
-        Room[] rooms = roomDAO.getRoomDB().clone();
-        return rooms;
-    }
+    Room[] roomsTAAPI = new Room[5];
 
     public TripAdvisorAPI() {
-        for (int i = 0; i < 5; i++) {
-            Room room = new Room(i + 20, (i + 7) * 100, 1, new Date(), "Some", "Kyiv");
-            roomDAO.save(room);
-        }
+        roomsTAAPI[0] = new Room(21, 800, 1, new Date(), "TripAdvisor", "Kiev");
+        roomsTAAPI[1] = new Room(22, 900, 1, new Date(), "TripAdvisor", "Kiev");
+        roomsTAAPI[2] = new Room(23, 200, 1, new Date(), "TripAdvisor", "Kiev");
+        roomsTAAPI[3] = new Room(24, 300, 1, new Date(), "TripAdvisor", "Kiev");
+        roomsTAAPI[4] = new Room(25, 400, 1, new Date(), "TripAdvisor", "Kiev");
     }
 
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-
         System.out.println("TripAdvisor try to found:");
         System.out.println(
                 "Price: " + price +
@@ -38,27 +33,25 @@ public class TripAdvisorAPI implements API {
                         "; Hotel: " + hotel +
                         ".");
 
-        Room[] dataBase = new Room[5];
-        Room[] rooms = roomDAO.getRoomDB().clone();
-        int count = -1;
-        for (int i = 0; i < 5; i++) {
-            if (rooms[i].getPrice() == price && rooms[i].getPersons() == persons && rooms[i].getCityName() == city && rooms[i].getHotelName() == hotel) {
-                count++;
-                dataBase[count] = rooms[i];
-                System.out.println("TripAdvisor was found:");
+        Room[] dataBase = new Room[roomsTAAPI.length];
+        Room tempRoom = new Room(0, price, persons, new Date(), hotel, city);
 
-                System.out.println(
-                        "ID: " + dataBase[count].getId() +
-                                "; Price: " + dataBase[count].getPrice() +
-                                "; Peresons: " + dataBase[count].getPersons() +
-                                "; City: " + dataBase[count].getCityName() +
-                                "; Hotel: " + dataBase[count].getHotelName() +
-                                ".");
+        int count = -1;
+        for (int i = 0; i < roomsTAAPI.length; i++) {
+            if (tempRoom.equals(roomsTAAPI[i])) {
+                count++;
+                dataBase[count] = roomsTAAPI[i];
+                System.out.print("TripAdvisor was found: ");
+                System.out.println(dataBase[count].toString());
             }
         }
         if (dataBase[0] == null) {
             System.out.println("TripAdvisor was NOT found");
         }
         return dataBase;
+    }
+
+    public Room[] getRooms() {
+        return roomsTAAPI;
     }
 }

@@ -30,6 +30,11 @@ public class Room {
     private String cityName;
 
     @Override
+    public String toString() {
+        return " ID: " + this.id + "; Price: " + this.price + "; Peresons: " + this.persons + "; City: " + this.cityName + "; Hotel: " + this.hotelName + ".";
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

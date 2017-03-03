@@ -5,6 +5,9 @@ import modul05.task053.API;
 import modul05.task054.BookingComAPI;
 import modul05.task054.GoogleAPI;
 import modul05.task054.TripAdvisorAPI;
+import modul05.task055.DAO;
+import modul05.task055.DAOimpl;
+
 
 /**
  * Created by MYKOLA.GOROKHOV on 22.02.2017.
@@ -23,11 +26,34 @@ import modul05.task054.TripAdvisorAPI;
 public class Controller {
     API apis[] = new API[3];
 
+    DAO dao = new DAOimpl();
+
     {
         apis[0] = new BookingComAPI();
         apis[1] = new GoogleAPI();
         apis[2] = new TripAdvisorAPI();
     }
+
+    public void save(Room room) {
+        dao.save(room);
+    }
+
+    public boolean delete(Room room) {
+        return dao.delete(room);
+    }
+
+    public Room update(Room room) {
+        return dao.update(room);
+    }
+
+    public Room findById(long id) {
+        return dao.findById(id);
+    }
+
+    public Room[] getAll() {
+        return dao.getAll();
+    }
+
 
     public Room[] requstRooms(int price, int persons, String city, String hotel) {
         Room[] requst1 = apis[0].findRooms(price, persons, city, hotel);
@@ -36,21 +62,21 @@ public class Controller {
         Room[] result = new Room[30];
 
         int count = -1;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < requst1.length; i++) {
             if (requst1[i] != null) {
                 count++;
                 result[count] = requst1[i];
             }
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < requst2.length; i++) {
             if (requst2[i] != null) {
                 count++;
                 result[count] = requst1[i];
             }
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < requst3.length; i++) {
             if (requst3[i] != null) {
                 count++;
                 result[count] = requst1[i];
@@ -70,8 +96,9 @@ public class Controller {
                     result[count] = api1.getRooms()[i];
                     count++;
                     result[count] = api2.getRooms()[j];
-                    System.out.println("Hotel ID: " + result[count - 1].getId());
-                    System.out.println("Hotel ID: " + result[count].getId());
+
+                    System.out.println(result[count - 1].toString());
+                    System.out.println(result[count].toString());
                 }
             }
         }
