@@ -1,4 +1,4 @@
-package modul06;
+package modul06.task064;
 
 /**
  * Created by MYKOLA.GOROKHOV on 08.03.2017.
@@ -21,27 +21,27 @@ package modul06;
 public class CitizenFactory {
 
     public static Citizen createNewCitizen(String contry) {
-        if (contry == "e") {
+        if (contry == "Englishman") {
             Citizen newCitizen = new Englishman();
             newCitizen.sayHello();
             return newCitizen;
         }
-        if (contry == "c") {
+        if (contry == "Chinese") {
             Citizen newCitizen = new Chinese();
             newCitizen.sayHello();
             return newCitizen;
         }
-        if (contry == "r") {
+        if (contry == "Russian") {
             Citizen newCitizen = new Russian();
             newCitizen.sayHello();
             return newCitizen;
         }
-        if (contry == "i") {
+        if (contry == "Italian") {
             Citizen newCitizen = new Italian();
             newCitizen.sayHello();
             return newCitizen;
         }
-        System.out.println("wrong country");
+        System.out.println("Wrong country");
         return null;
     }
 

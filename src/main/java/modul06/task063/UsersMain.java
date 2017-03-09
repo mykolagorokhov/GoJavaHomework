@@ -1,34 +1,10 @@
-package modul06;
+package modul06.task063;
 
 /**
  * Created by MYKOLA.GOROKHOV on 04.03.2017.
  */
-public class Main {
+public class UsersMain {
     public static void main(String[] args) {
-//    ArraysUtils Test-------------------
-        int[] array = {-11, 22, -33, -44, -55, -66, -77, -88, -99, -101};
-        ArraysUtils arraysUtils = new ArraysUtils();
-
-        System.out.println("\u001B[31m");
-        arraysUtils.sum(array);
-        System.out.println("\u001B[32m");
-        arraysUtils.min(array);
-        System.out.println("\u001B[33m");
-        arraysUtils.max(array);
-        System.out.println("\u001B[31m");
-        arraysUtils.maxPositive(array);
-        System.out.println("\u001B[32m");
-        arraysUtils.multiplication(array);
-        System.out.println("\u001B[33m");
-        arraysUtils.modulus(array);
-        System.out.println("\u001B[31m");
-        arraysUtils.secondLargest(array);
-        System.out.println("\u001B[32m");
-
-        arraysUtils.reverse(array);
-        System.out.println("\u001B[33m");
-        arraysUtils.findEvenElements(array);
-//--------------------------------------------------
 //        User Utils Test
 //--------------------------------------------------
 
@@ -68,19 +44,7 @@ public class Main {
 
         System.out.println("\u001B[32m");
         userUtils.getUsersId(users);
-//----------------------------------------------
-        //Factory Test
-        System.out.println("\u001B[31m");
-        System.out.println("Factory Test : \u001B[31m");
-        CitizenFactory test = new CitizenFactory();
-        test.createNewCitizen("e");
-        CitizenFactory test1 = new CitizenFactory();
-        test1.createNewCitizen("c");
-        CitizenFactory test2 = new CitizenFactory();
-        test2.createNewCitizen("r");
-        CitizenFactory test3 = new CitizenFactory();
-        test3.createNewCitizen("i");
 
-        //----------------------------------------------
+
     }// END MAIN METHOD
 }

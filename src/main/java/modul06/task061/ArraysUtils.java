@@ -1,4 +1,4 @@
-package modul06;
+package modul06.task061;
 
 import java.util.Arrays;
 
@@ -32,6 +32,17 @@ import java.util.Arrays;
 
 //final
 public final class ArraysUtils {
+    private static ArraysUtils instance;
+
+    public static ArraysUtils getInstance() {
+        if (instance == null) {
+            instance = new ArraysUtils();
+        }
+        return instance;
+    }
+
+    private ArraysUtils() {
+    }
 
     static final int[] reverse(int[] array) {
         int[] reverseArray = new int[array.length];

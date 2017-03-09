@@ -1,4 +1,4 @@
-package modul06;
+package modul06.task063;
 
 /**
  * Created by MYKOLA.GOROKHOV on 04.03.2017.

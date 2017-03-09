@@ -1,4 +1,5 @@
-package modul06;
+package modul06.task063;
+
 
 import java.util.Arrays;
 
