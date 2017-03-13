@@ -9,26 +9,26 @@ public class ArraysMain
     public static void main(String[] args) {
 //    ArraysUtils Test-------------------
         int[] array = {-11, 22, -33, -44, -55, -66, -77, -88, -99, -101};
-        //  ArraysUtils arraysUtils = new ArraysUtils();
+     //     ArraysUtils arraysUtils = new ArraysUtils();
 
         System.out.println("\u001B[31m");
-        ArraysUtils.getInstance().sum(array);
+        ArraysUtils.sum(array);
         System.out.println("\u001B[32m");
-        ArraysUtils.getInstance().min(array);
+        ArraysUtils.min(array);
         System.out.println("\u001B[33m");
-        ArraysUtils.getInstance().max(array);
+        ArraysUtils.max(array);
         System.out.println("\u001B[31m");
-        ArraysUtils.getInstance().maxPositive(array);
+        ArraysUtils.maxPositive(array);
         System.out.println("\u001B[32m");
-        ArraysUtils.getInstance().multiplication(array);
+        ArraysUtils.multiplication(array);
         System.out.println("\u001B[33m");
-        ArraysUtils.getInstance().modulus(array);
+        ArraysUtils.modulus(array);
         System.out.println("\u001B[31m");
-        ArraysUtils.getInstance().secondLargest(array);
+        ArraysUtils.secondLargest(array);
         System.out.println("\u001B[32m");
-        ArraysUtils.getInstance().reverse(array);
+        ArraysUtils.reverse(array);
         System.out.println("\u001B[33m");
-        ArraysUtils.getInstance().findEvenElements(array);
+        ArraysUtils.findEvenElements(array);
 
     }// END MAIN METHOD
 }

@@ -17,9 +17,12 @@ import java.util.Arrays;
  * <p>
  * Create UsersMain class with main method where create some test users and demonstrate how each method from UserUtils works.
  */
-public class UserUtils {
+public final class UserUtils {
 
-    public User[] uniqueUsers(User[] users)
+    private UserUtils() {
+    }
+
+    static final User[] uniqueUsers(User[] users)
     //users are equal when all their field are equal
     {
         User[] uniqueUsers = new User[users.length];
@@ -49,7 +52,7 @@ public class UserUtils {
     }
 
 
-    public User[] usersWithContitionalBalance(User[] users, int balance)
+    static final User[] usersWithContitionalBalance(User[] users, int balance)
     //user’s balance == balance
     {
         System.out.println("usersWithContitionalBalance");
@@ -73,7 +76,7 @@ public class UserUtils {
         return usersBalance;
     }
 
-    public final User[] paySalaryToUsers(User[] users) {
+    static final User[] paySalaryToUsers(User[] users) {
         User[] newUsers = new User[users.length];
         System.out.println("paySalaryToUsers");
         for (int i = 0; i < users.length; i++) {
@@ -86,7 +89,7 @@ public class UserUtils {
     }
 
 
-    public final long[] getUsersId(User[] users) {
+    static final long[] getUsersId(User[] users) {
         long[] id = new long[users.length];
         System.out.println("getUsersId");
         for (int i = 0; i < users.length; i++) {
@@ -96,7 +99,7 @@ public class UserUtils {
         return id;
     }
 
-    public User[] deleteEmptyUsers(User[] users) {
+    static final User[] deleteEmptyUsers(User[] users) {
         User[] clearedUsers = new User[users.length];
         int count = 0;
         for (int i = 0; i < users.length; i++) {

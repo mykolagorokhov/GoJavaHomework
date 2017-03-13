@@ -32,14 +32,14 @@ import java.util.Arrays;
 
 //final
 public final class ArraysUtils {
-    private static ArraysUtils instance;
+//    private static ArraysUtils instance;
 
-    public static ArraysUtils getInstance() {
-        if (instance == null) {
-            instance = new ArraysUtils();
-        }
-        return instance;
-    }
+//    public static ArraysUtils getInstance() {
+//        if (instance == null) {
+//            instance = new ArraysUtils();
+//        }
+//        return instance;
+//    }
 
     private ArraysUtils() {
     }

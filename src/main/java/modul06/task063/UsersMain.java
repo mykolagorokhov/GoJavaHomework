@@ -8,7 +8,7 @@ public class UsersMain {
 //        User Utils Test
 //--------------------------------------------------
 
-        UserUtils userUtils = new UserUtils();
+    //    UserUtils userUtils = new UserUtils();
         User[] users = new User[10];
         users[0] = new User(1, "F1", "L1", 100, 100);
         users[1] = new User(2, "F2", "L2", 100, 50);
@@ -33,17 +33,17 @@ public class UsersMain {
         }
 
         System.out.println("\u001B[31m");
-        users = userUtils.deleteEmptyUsers(users);
+        users = UserUtils.deleteEmptyUsers(users);
 
         System.out.println("\u001B[32m");
-        userUtils.uniqueUsers(users);
+        UserUtils.uniqueUsers(users);
         System.out.println("\u001B[33m");
-        userUtils.usersWithContitionalBalance(users, 50);
+        UserUtils.usersWithContitionalBalance(users, 50);
         System.out.println("\u001B[31m");
-        userUtils.paySalaryToUsers(users);
+        UserUtils.paySalaryToUsers(users);
 
         System.out.println("\u001B[32m");
-        userUtils.getUsersId(users);
+        UserUtils.getUsersId(users);
 
 
     }// END MAIN METHOD
