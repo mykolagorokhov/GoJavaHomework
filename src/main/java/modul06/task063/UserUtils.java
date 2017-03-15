@@ -22,7 +22,7 @@ public final class UserUtils {
     private UserUtils() {
     }
 
-    static final User[] uniqueUsers(User[] users)
+    public static final User[] uniqueUsers(User[] users)
     //users are equal when all their field are equal
     {
         User[] uniqueUsers = new User[users.length];
@@ -52,7 +52,7 @@ public final class UserUtils {
     }
 
 
-    static final User[] usersWithContitionalBalance(User[] users, int balance)
+    public static final User[] usersWithContitionalBalance(User[] users, int balance)
     //user’s balance == balance
     {
         System.out.println("usersWithContitionalBalance");
@@ -76,7 +76,7 @@ public final class UserUtils {
         return usersBalance;
     }
 
-    static final User[] paySalaryToUsers(User[] users) {
+    public static final User[] paySalaryToUsers(User[] users) {
         User[] newUsers = new User[users.length];
         System.out.println("paySalaryToUsers");
         for (int i = 0; i < users.length; i++) {
@@ -89,7 +89,7 @@ public final class UserUtils {
     }
 
 
-    static final long[] getUsersId(User[] users) {
+    public static final long[] getUsersId(User[] users) {
         long[] id = new long[users.length];
         System.out.println("getUsersId");
         for (int i = 0; i < users.length; i++) {

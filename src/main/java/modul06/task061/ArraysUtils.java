@@ -44,7 +44,7 @@ public final class ArraysUtils {
     private ArraysUtils() {
     }
 
-    static final int[] reverse(int[] array) {
+    public static final int[] reverse(int[] array) {
         int[] reverseArray = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             reverseArray[i] = array[array.length - i - 1];
@@ -53,7 +53,7 @@ public final class ArraysUtils {
         return reverseArray;
     }
 
-    static final int[] findEvenElements(int[] array) {
+    public static final int[] findEvenElements(int[] array) {
         int[] tempArray = new int[array.length];
 
         int count = 0;
@@ -72,7 +72,7 @@ public final class ArraysUtils {
     }
 
     //----------------Методы для Integer-----------------------------
-    static final void secondLargest(int[] array) {
+    public static final void secondLargest(int[] array) {
         int[] sortedArray = array.clone();
 
         for (int i = sortedArray.length - 1; i > 0; i--) {
@@ -89,12 +89,12 @@ public final class ArraysUtils {
 //        System.out.println("initial array= " + Arrays.toString(array));
     }
 
-    static final void modulus(int[] array) {
+    public static final void modulus(int[] array) {
         System.out.println("Модуль первого элемента= " + Math.abs(array[0]));
         System.out.println("Модуль последнего элемента = " + Math.abs(array[array.length - 1]));
     }
 
-    static final void multiplication(int[] array) {
+    public static final void multiplication(int[] array) {
         int mult = 1;
         for (int i = 0; i < array.length; i++) {
             mult *= array[i];
@@ -102,7 +102,7 @@ public final class ArraysUtils {
         System.out.println("Произведение элементов массива= " + mult);
     }
 
-    static final void maxPositive(int[] array) {
+    public static final void maxPositive(int[] array) {
         int maxPositive = array[0];
 
         for (int i = 0; i < array.length; i++) {
@@ -118,7 +118,7 @@ public final class ArraysUtils {
         }
     }
 
-    static final void max(int[] array) {
+    public static final void max(int[] array) {
         int max = array[0];
 
         for (int i = 0; i < array.length; i++) {
@@ -129,7 +129,7 @@ public final class ArraysUtils {
         System.out.println("Максимальное значение массива= " + max);
     }
 
-    static final void min(int[] array) {
+    public static final void min(int[] array) {
         int min = array[0];
 
         for (int i = 0; i < array.length; i++) {
@@ -140,7 +140,7 @@ public final class ArraysUtils {
         System.out.println("Минимальное значение массива= " + min);
     }
 
-    static final void sum(int[] array) {
+    public static final void sum(int[] array) {
         int sum = 0;
 
         for (int i = 0; i < array.length; i++) {
