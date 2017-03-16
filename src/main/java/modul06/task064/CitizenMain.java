@@ -1,6 +1,8 @@
 package modul06.task064;
 
 
+import java.util.Scanner;
+
 /**
  * Created by MYKOLA.GOROKHOV on 04.03.2017.
  */
@@ -19,6 +21,13 @@ public class CitizenMain {
         test3.createNewCitizen("Italian");
         CitizenFactory test4 = new CitizenFactory();
         test4.createNewCitizen("some country");
+
+        System.out.println("Enter country: ");
+        Scanner scanner = new Scanner(System.in);
+        String test5 = scanner.nextLine();
+        Citizen citizen = CitizenFactory.createNewCitizen(test5);
+
+
     }// END MAIN METHOD
 
 }

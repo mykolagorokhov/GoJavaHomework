@@ -20,23 +20,25 @@ package modul06.task064;
  */
 public class CitizenFactory {
 
-    public static Citizen createNewCitizen(String contry) {
-        if (contry == "Englishman") {
+    public static Citizen createNewCitizen(String country) {
+        if (country.equals("Englishman"))
+
+        {
             Citizen newCitizen = new Englishman();
             newCitizen.sayHello();
             return newCitizen;
         }
-        if (contry == "Chinese") {
+        if (country.equals("Chinese")) {
             Citizen newCitizen = new Chinese();
             newCitizen.sayHello();
             return newCitizen;
         }
-        if (contry == "Russian") {
+        if (country.equals("Russian")) {
             Citizen newCitizen = new Russian();
             newCitizen.sayHello();
             return newCitizen;
         }
-        if (contry == "Italian") {
+        if (country.equals("Italian")) {
             Citizen newCitizen = new Italian();
             newCitizen.sayHello();
             return newCitizen;

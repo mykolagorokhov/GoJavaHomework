@@ -99,7 +99,7 @@ public final class UserUtils {
         return id;
     }
 
-    static final User[] deleteEmptyUsers(User[] users) {
+    public static final User[] deleteEmptyUsers(User[] users) {
         User[] clearedUsers = new User[users.length];
         int count = 0;
         for (int i = 0; i < users.length; i++) {
