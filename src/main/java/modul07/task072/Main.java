@@ -66,7 +66,7 @@ public class Main {
 
 //---sort list by Order price in decrease order--------------------------
         System.out.println("\u001B[31m");
-        System.out.println("sort list by Order price in decrease order");
+        //      System.out.println("sort list by Order price in decrease order");
         collectionList.sort(new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
@@ -75,12 +75,12 @@ public class Main {
         });
 
         for (Order cL : collectionList) {
-            System.out.println(cL.toString());
+            //          System.out.println(cL.toString());
         }
 
 //---sort list by Order price in increase order AND User city---------------------------------------
         System.out.println("\u001B[32m");
-        System.out.println("sort list by Order price in increase order AND User city");
+        //       System.out.println("sort list by Order price in increase order AND User city");
 
         Comparator<Order> sortByPriceCity = new Comparator<Order>() {
             @Override
@@ -95,13 +95,13 @@ public class Main {
 
         collectionList.sort(sortByPriceCity);
         for (Order cL : collectionList) {
-            System.out.println(cL.toString());
+            //         System.out.println(cL.toString());
         }
 
         //---sort list by Order itemName AND ShopIdentificator AND User city------------------------------
 
         System.out.println("\u001B[33m");
-        System.out.println("sort list by Order itemName AND ShopIdentificator AND User city");
+        //      System.out.println("sort list by Order itemName AND ShopIdentificator AND User city");
 
         Comparator<Order> sortByItemShopCity = new Comparator<Order>() {
             @Override
@@ -118,7 +118,7 @@ public class Main {
 
         collectionList.sort(sortByItemShopCity);
         for (Order cL : collectionList) {
-            System.out.println(cL.toString());
+            //           System.out.println(cL.toString());
         }
 //+============================================================
 //       Extra (optional):
@@ -133,9 +133,9 @@ public class Main {
         HashSet<Order> setFreeFromDuplicates = new HashSet<>(collectionList);
 
         System.out.println("\u001B[31m");
-        System.out.println("Set Free From Duplicates : ");
+        //      System.out.println("Set Free From Duplicates : ");
         for (Order sFFD : setFreeFromDuplicates) {
-            System.out.println(sFFD.toString());
+            //           System.out.println(sFFD.toString());
         }
 
 //---разделите список на 2 списка - заказы в долларах и в гривнах---------------
@@ -151,16 +151,16 @@ public class Main {
             }
         }
         System.out.println("\u001B[33m");
-        System.out.println("list with USD:");
+        //     System.out.println("list with USD:");
 
         for (Order cL : collectionListUSD) {
-            System.out.println(cL.toString());
+            //           System.out.println(cL.toString());
         }
         System.out.println("\u001B[31m");
-        System.out.println("list with EU:");
+        //       System.out.println("list with EU:");
 
         for (Order cL : collectionListEU) {
-            System.out.println(cL.toString());
+            //           System.out.println(cL.toString());
         }
 
 
@@ -172,28 +172,23 @@ public class Main {
             }
         });
 
-
-
-        System.out.println("\u001B[33m");
-        System.out.println("sorted Orders:");
-        for (Order cL : collectionList) {
-            System.out.println(cL.toString());
-        }
-
-
-
-
-
         List<List<Order>> arr = new ArrayList<>();
         List<Order> tempOrder = new ArrayList<>();
         tempOrder.add(collectionList.get(0));
 
-        int count = 0;
-        for (int i = 1; i < collectionList.size(); i++) {
-            //НЕ считаем уникальные города
+        System.out.println("\u001B[32m");
+        System.out.println("separate list for as many lists as many unique cities are in User:");
 
+        for (int i = 1; i < collectionList.size(); i++) {
             if (!collectionList.get(i).getUser().getCity().equals(collectionList.get(i - 1).getUser().getCity())) {
                 arr.add(tempOrder);
+//=================================================
+                System.out.println();
+                for (Order cL : tempOrder) {
+                    System.out.println(cL.toString());
+                }
+//=================================================
+
                 tempOrder.clear();
                 tempOrder.add(collectionList.get(i));
             } else {
@@ -201,10 +196,25 @@ public class Main {
             }
 
         }
-        System.out.println("\u001B[32m");
-        System.out.println("separate list for as many lists as many unique cities are in User:");
-        System.out.println(count);
-        System.out.println(arr.get(0).toString());
+        arr.add(tempOrder);
+//=================================================
+        System.out.println();
+        for (Order cL : tempOrder) {
+            System.out.println(cL.toString());
+        }
+//=================================================
+
+
+        System.out.println("all");
+        for (List cL : arr) {
+            System.out.println();
+            for (Order cL1 : tempOrder) {
+                System.out.println(cL1.toString());
+            }
+        }
+
+
+
 
 
 //---удалите объекты, где цена меньше 1500-------------------------
@@ -213,10 +223,10 @@ public class Main {
                 collectionList.remove(i);
             }
         }
-        System.out.println("\u001B[33m");
-        System.out.println("delete items where price less than 1500");
+   //     System.out.println("\u001B[33m");
+     //   System.out.println("delete items where price less than 1500");
         for (Order cL : collectionList) {
-            System.out.println(cL.toString());
+  //                   System.out.println(cL.toString());
         }
     }
 }
