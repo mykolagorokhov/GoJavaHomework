@@ -151,5 +151,6 @@ public class Task075 {
         }
         endTime = System.currentTimeMillis();
         System.out.println("LinkedList<String> remove speed: " + (endTime - startTime));
+
     }
 }

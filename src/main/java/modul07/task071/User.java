@@ -18,7 +18,6 @@ public class User {
     private String city;
     private int balance;
 
-
     @Override
     public String toString() {
         return "User{" +

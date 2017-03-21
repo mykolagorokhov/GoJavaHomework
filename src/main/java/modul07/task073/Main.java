@@ -41,8 +41,8 @@ public class Main {
         Order order10 = new Order(5, 2200, Currency.USD, "I1", "S1", user10);
 
 
-        // сортирует ТОЛЬКО по цене
-        Comparator<Order> orderStupidComporator = new Comparator<Order>() {
+// сортирует ТОЛЬКО по цене
+        Comparator<Order> orderStupidComparator = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
                 if (!o1.equals(o2)) {
@@ -53,7 +53,7 @@ public class Main {
             }
         };
 
-        TreeSet<Order> treeSet = new TreeSet<>(orderStupidComporator);
+        TreeSet<Order> treeSet = new TreeSet<>(orderStupidComparator);
 
         treeSet.add(order1);
         treeSet.add(order2);
