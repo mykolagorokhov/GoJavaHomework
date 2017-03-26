@@ -13,20 +13,33 @@ import modul08.task084.ManageSystem;
 public class Main {
     public static void main(String[] args) {
 
-        Food z0 = new Food("name", Country.UKRAINE, 100);
-        System.out.println(z0);
+        Food z0 = new Food("name0", Country.UKRAINE, 100);
+        Food z1 = new Food("name1", Country.UKRAINE, 100);
+        Food z2 = new Food("name2", Country.UKRAINE, 100);
+        Food z3 = new Food("name3", Country.UKRAINE, 100);
+        Food z4 = new Food("name4", Country.UKRAINE, 100);
+        Food z5 = new Food("name5", Country.UKRAINE, 100);
 
-        Food z1 = new Food("name", Country.UKRAINE, 100);
-        System.out.println(z1);
+        ManageSystem<Food> ms = new ManageSystem<>();
 
-        Food z2 = new Food("name", Country.UKRAINE, 100);
-        System.out.println(z2);
+        ms.save(z1, 100);
+        ms.save(z2, 100);
+        ms.save(z0, 200);
+        ms.save(z3, 200);
+        ms.save(z4, 200);
+        ms.save(z5, 200);
 
-        // ManageSystem<Country> ms = new ManageSystem<Country>();
-        ManageSystem<Food> ms = new ManageSystem<Food>();
-        //    ms.save(Country.BRASIL,100);
-        ms.save(z0, 100);
+        ms.delete(z2);
+        ms.save(z2);
 
+        ms.deleteById(3);
+
+        System.out.println("get by ID \n" + ms.get(2));
+
+        System.out.println("getPrice \n" + ms.getPrice(z1));
+
+        System.out.println("getProducts \n" + ms.getProducts().toString());
+        System.out.println("getPrices \n" + ms.getPrices().toString());
 
     }
 }
