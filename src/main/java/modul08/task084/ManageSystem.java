@@ -1,6 +1,5 @@
 package modul08.task084;
 
-import modul07.task075.Task075;
 import modul08.task082.Food;
 import modul08.task083.IManageSystem;
 
@@ -94,5 +93,39 @@ public class ManageSystem<T> implements IManageSystem<T> {
         return priceList;
     }
 
+    @Override
+    public void printProductsSortedByName() {
+        List<Food> sortedDB = new ArrayList();
+        sortedDB.addAll(this.database.keySet());
 
+        sortedDB.sort(new Comparator<Food>() {
+            @Override
+            public int compare(Food o1, Food o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        for (Food item : sortedDB) {
+            System.out.println(item.toString() + " - with price - " + this.database.get(item));
+        }
+    }
+
+    @Override
+    public void printProductsSortedByPrice() {
+        List<Map.Entry<Food, Double>> sortedPriceDB = new ArrayList();
+        sortedPriceDB.addAll(this.database.entrySet());
+
+        sortedPriceDB.sort(new Comparator<Map.Entry<Food, Double>>() {
+            @Override
+            public int compare(Map.Entry<Food, Double> o1, Map.Entry<Food, Double> o2) {
+                if (o1.getValue() == null) return -1;
+                if (o2.getValue() == null) return 1;
+                return o1.getValue().compareTo(o2.getValue());
+            }
+        });
+
+        for (Map.Entry<Food, Double> item : sortedPriceDB) {
+            System.out.println(item.toString());
+        }
+    }
 }

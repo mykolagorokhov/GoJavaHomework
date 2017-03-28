@@ -46,7 +46,8 @@ public interface IManageSystem<T> {
 //    void printProductsSortedByPrice();- выводит список «продукт-цена», отсортированных по цене продукта (по возрастанию).
 //------------------------------------------------------------------------------------------------------
 
-//    void printProductsSortedByName();
-//    void printProductsSortedByPrice();
+    void printProductsSortedByName();
+
+    void printProductsSortedByPrice();
 
 }
