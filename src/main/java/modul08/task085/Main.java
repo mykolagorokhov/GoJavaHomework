@@ -32,13 +32,13 @@ public class Main {
         ms.delete(z2);
         ms.save(z2);
 
-        ms.deleteById(-2044098388);
+        ms.deleteById(-2044102032);
         System.out.println();
         System.out.println("get by ID");
         ms.get(-2044100310);
         System.out.println();
         System.out.println("getPrice ");
-        ms.getPrice(z1);
+        ms.getPrice(z3);
         System.out.println();
         System.out.println("getProducts \n" + ms.getProducts().toString());
         System.out.println();
