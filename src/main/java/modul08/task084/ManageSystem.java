@@ -16,35 +16,34 @@ import java.util.*;
  * Поле эмулирует базу данных, содержит в себе данные о продуктах и их цене.
  * Поле должно быть доступно только внутри данного класса.
  */
-public class ManageSystem<T> implements IManageSystem<T> {
+public class ManageSystem implements IManageSystem<Food> {
 
-    private static Map<Food, Double> database = new HashMap<>();
+    private Map<Food, Double> database = new HashMap<>();
 
 
     @Override
-    public T save(T obj, double price) {
-        if (obj.getClass().equals(Food.class)) {
-            this.database.put((Food) obj, price);
-            System.out.println(obj.toString() + " was added");
-        }
+    public Food save(Food obj, double price) {
+
+        this.database.put(obj, price);
+        System.out.println(obj.toString() + " was added");
+
         return obj;
     }
 
     @Override
-    public T save(T obj) {
-        if (obj.getClass().equals(Food.class)) {
-            this.database.put((Food) obj, null);
-            System.out.println(obj.toString() + " was added without price");
-        }
+    public Food save(Food obj) {
+
+        this.database.put(obj, null);
+        System.out.println(obj.toString() + " was added without price");
+
         return obj;
     }
 
     @Override
-    public void delete(T obj) {
-        if (obj.getClass().equals(Food.class)) {
-            this.database.remove(obj);
-            System.out.println(obj.toString() + " was removed");
-        }
+    public void delete(Food obj) {
+
+        this.database.remove(obj);
+        System.out.println(obj.toString() + " was removed");
     }
 
     @Override
@@ -59,11 +58,11 @@ public class ManageSystem<T> implements IManageSystem<T> {
     }
 
     @Override
-    public T get(int id) {
+    public Food get(int id) {
         for (Map.Entry<Food, Double> item : this.database.entrySet()) {
             if (item.getKey() != null && item.getKey().getId() == id) {
                 System.out.println(item.getKey().toString() + " with id=" + id + " was found");
-                return (T) item.getKey();
+                return item.getKey();
             }
         }
         System.out.println(id + " not found");
@@ -71,14 +70,13 @@ public class ManageSystem<T> implements IManageSystem<T> {
     }
 
     @Override
-    public Double getPrice(T obj) {
-        if (obj.getClass().equals(Food.class)) {
+    public Double getPrice(Food obj) {
 
-            for (Map.Entry<Food, Double> item : this.database.entrySet()) {
-                if (item.getKey().equals(obj)) {
-                    System.out.println("Price of " + obj.toString() + "  " + item.getValue());
-                    return item.getValue();
-                }
+        for (Map.Entry<Food, Double> item : this.database.entrySet()) {
+            if (item.getKey().equals(obj)) {
+                System.out.println("Price of " + obj.toString() + "  " + item.getValue());
+                return item.getValue();
+
             }
         }
         System.out.println(obj.toString() + " not found");
@@ -86,8 +84,8 @@ public class ManageSystem<T> implements IManageSystem<T> {
     }
 
     @Override
-    public Set<T> getProducts() {
-        return (Set<T>) this.database.keySet();
+    public Set<Food> getProducts() {
+        return this.database.keySet();
     }
 
     @Override
