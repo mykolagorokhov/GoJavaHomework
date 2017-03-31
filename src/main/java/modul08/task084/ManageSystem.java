@@ -72,14 +72,11 @@ public class ManageSystem implements IManageSystem<Food> {
     @Override
     public Double getPrice(Food obj) {
 
-        for (Map.Entry<Food, Double> item : this.database.entrySet()) {
-            if (item.getKey().equals(obj)) {
-                System.out.println("Price of " + obj.toString() + "  " + item.getValue());
-                return item.getValue();
-
-            }
+        if (this.database.containsKey(obj)) {
+            System.out.println(obj + " - " + this.database.get(obj));
+            return this.database.get(obj);
         }
-        System.out.println(obj.toString() + " not found");
+        System.out.println("This " + obj.toString() + " not found");
         return null;
     }
 
