@@ -10,18 +10,28 @@ package modul08.task081;
  */
 public final class IdGenerator {
 
+//==========OLD REALISATION==========================================
+//    private IdGenerator() {
+//    }
+//
+//    private static long lastID;
+//
+//    public static long generate() {
+//        if (lastID < Long.MAX_VALUE) {
+//            return lastID++;
+//        }
+//
+//        return Long.parseLong(null);
+//    }
+//-----------------------------------------------------
 
-    private IdGenerator() {
+
+    public static  long generate(String name, Country country, long expiration) {
+        int result = name.hashCode();
+        result = 31 * result + country.hashCode();
+        result = 31 * result + (int) (expiration ^ (expiration >>> 32));
+        return result;
     }
 
-    private static long lastID;
-
-    public static long generate() {
-        if (lastID < Long.MAX_VALUE) {
-            return lastID++;
-        }
-
-        return Long.parseLong(null);
-    }
 
 }

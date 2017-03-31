@@ -32,15 +32,19 @@ public class ManageSystem<T> implements IManageSystem<T> {
 
     @Override
     public T save(T obj) {
-        this.database.put((Food) obj, null);
-        System.out.println(obj.toString() + " was added without price");
+        if (obj.getClass().equals(Food.class)) {
+            this.database.put((Food) obj, null);
+            System.out.println(obj.toString() + " was added without price");
+        }
         return obj;
     }
 
     @Override
     public void delete(T obj) {
-        this.database.remove(obj);
-        System.out.println(obj.toString() + " was removed");
+        if (obj.getClass().equals(Food.class)) {
+            this.database.remove(obj);
+            System.out.println(obj.toString() + " was removed");
+        }
     }
 
     @Override
@@ -68,10 +72,13 @@ public class ManageSystem<T> implements IManageSystem<T> {
 
     @Override
     public Double getPrice(T obj) {
-        for (Map.Entry<Food, Double> item : this.database.entrySet()) {
-            if (item.getKey().equals(obj)) {
-                System.out.println("Price of " + obj.toString() + "  " + item.getValue());
-                return item.getValue();
+        if (obj.getClass().equals(Food.class)) {
+
+            for (Map.Entry<Food, Double> item : this.database.entrySet()) {
+                if (item.getKey().equals(obj)) {
+                    System.out.println("Price of " + obj.toString() + "  " + item.getValue());
+                    return item.getValue();
+                }
             }
         }
         System.out.println(obj.toString() + " not found");

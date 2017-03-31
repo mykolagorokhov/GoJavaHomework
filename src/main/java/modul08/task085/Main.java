@@ -20,7 +20,7 @@ public class Main {
         Food z4 = new Food("name4", Country.UKRAINE, 100);
         Food z5 = new Food("name5", Country.UKRAINE, 500);
 
-        ManageSystem<Food> ms = new ManageSystem<>();
+        ManageSystem<Object> ms = new ManageSystem<>();
 
         ms.save(z1, 700);
         ms.save(z2, 600);
@@ -29,13 +29,16 @@ public class Main {
         ms.save(z4, 300);
         ms.save(z5, 200);
 
+        ms.save(new Object(),321);
+
+
         ms.delete(z2);
         ms.save(z2);
 
-        ms.deleteById(3);
+        ms.deleteById(-2044098388);
         System.out.println();
         System.out.println("get by ID");
-        ms.get(2);
+        ms.get(-2044100310);
         System.out.println();
         System.out.println("getPrice ");
         ms.getPrice(z1);

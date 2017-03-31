@@ -29,7 +29,7 @@ public class Food {
         this.name = name;
         this.country = country;
         this.expiration = expiration;
-        this.id = IdGenerator.generate();
+        this.id =  IdGenerator.generate ( name,  country, expiration);
     }
 
     public long getId() {
