@@ -68,7 +68,7 @@ JI.sort1(collectionList);
             System.out.println(cL.toString());
         }
 //        -отсортируйте список за ценой заказа по возрастанию и за городом пользователя
-        //JI.sort2(collectionList);
+        JI.sort2((ArrayList<Order>) collectionList);
 
         System.out.println("\u001B[35m");
         System.out.println("отсортируйте список за ценой заказа по возрастанию и за городом пользователя:");
