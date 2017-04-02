@@ -49,9 +49,8 @@ public class Java8Instruments {
         });
     }
 
-//        -отсортируйте список за наименованием товара, идентификатором заказа, и городом пользователя
+    //        -отсортируйте список за наименованием товара, идентификатором заказа, и городом пользователя
     public void sort3(ArrayList<Order> arrayList) {
-
         arrayList.sort((Order o1, Order o2) ->
         {
             if (!o1.getItemName().equals(o2.getItemName())) {
@@ -65,7 +64,12 @@ public class Java8Instruments {
     }
 
 
-//        -удалите дублированные данные со списка
+    //        -удалите дублированные данные со списка
+    public void remove(ArrayList<Order> arrayList) {
+        HashSet<Order> clearSet = new HashSet<>(arrayList);
+        arrayList.addAll(clearSet);
+
+    }
 
 //        -удалите объекты, где цена меньше 1500
 

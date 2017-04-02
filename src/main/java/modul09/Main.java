@@ -59,8 +59,8 @@ public class Main {
 
         Java8Instruments JI = new Java8Instruments();
 
-//        -отсортируйте список за ценой заказа по убыванию
-JI.sort1(collectionList);
+//-отсортируйте список за ценой заказа по убыванию
+        JI.sort1(collectionList);
 
         System.out.println("\u001B[34m");
         System.out.println("отсортируйте список за ценой заказа по убыванию:");
@@ -85,7 +85,13 @@ JI.sort1(collectionList);
         }
 
 //        -удалите дублированные данные со списка
+        JI.remove(((ArrayList<Order>) collectionList));
 
+        System.out.println("\u001B[36m");
+        System.out.println("удалите дублированные данные со списка:");
+        for (Order cL : collectionList) {
+            System.out.println(cL.toString());
+        }
 //        -удалите объекты, где цена меньше 1500
 
 //        - разделите список на 2 списка - заказы в долларах и в гривнах
