@@ -33,23 +33,28 @@ public class Java8Instruments {
 
     //        -отсортируйте список за ценой заказа по убыванию
     public void sort1(List<Order> arrayList) {
-        Collections.sort(arrayList, (Order o1, Order o2) -> o2.getPrice() - o1.getPrice());
+        Collections.sort(arrayList, (o1, o2) -> o2.getPrice() - o1.getPrice());
     }
 
     //        -отсортируйте список за ценой заказа по возрастанию и за городом пользователя
+    public void sort2(ArrayList<Order> arrayList) {
 
+        arrayList.sort((Order o1, Order o2) ->
+        {
+            if (o1.getPrice() != o2.getPrice()) {
+                return (o1.getPrice() - o2.getPrice());
+            }
+            return o1.getUser().getCity().compareTo(o2.getUser().getCity());
 
-//    public void sort2(List<Order> arrayList) {
+        });
+    }
+
 //
-//        Collections.sort(arrayList,(Order o1, Order o2) -> {
-//         if (o1.getPrice() != o2.getPrice()) {
-//             o1.getPrice() - o2.getPrice();}
+//             return o1.getPrice() - o2.getPrice();}
 //        //     else {
 //         //   o1.getUser().getCity().compareTo(o2.getUser().getCity());}
 //            });
 //        }
-
-
 
 
 //
