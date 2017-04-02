@@ -25,13 +25,10 @@ public final class IdGenerator {
 //    }
 //-----------------------------------------------------
 
-
-    public static  long generate(String name, Country country, long expiration) {
+    public static long generate(String name, Country country, long expiration) {
         int result = name.hashCode();
         result = 31 * result + country.hashCode();
         result = 31 * result + (int) (expiration ^ (expiration >>> 32));
         return result;
     }
-
-
 }

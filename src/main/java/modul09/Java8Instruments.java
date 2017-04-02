@@ -49,16 +49,21 @@ public class Java8Instruments {
         });
     }
 
-//
-//             return o1.getPrice() - o2.getPrice();}
-//        //     else {
-//         //   o1.getUser().getCity().compareTo(o2.getUser().getCity());}
-//            });
-//        }
-
-
-//
 //        -отсортируйте список за наименованием товара, идентификатором заказа, и городом пользователя
+    public void sort3(ArrayList<Order> arrayList) {
+
+        arrayList.sort((Order o1, Order o2) ->
+        {
+            if (!o1.getItemName().equals(o2.getItemName())) {
+                return (o1.getItemName().compareTo(o2.getItemName()));
+            }
+            if (o1.getId() != o2.getId()) {
+                return (int) (o1.getId() - o2.getId());
+            }
+            return o1.getUser().getCity().compareTo(o2.getUser().getCity());
+        });
+    }
+
 
 //        -удалите дублированные данные со списка
 

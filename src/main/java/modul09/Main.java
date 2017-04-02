@@ -76,6 +76,13 @@ JI.sort1(collectionList);
             System.out.println(cL.toString());
         }
 //        -отсортируйте список за наименованием товара, идентификатором заказа, и городом пользователя
+        JI.sort3((ArrayList<Order>) collectionList);
+
+        System.out.println("\u001B[36m");
+        System.out.println("отсортируйте список за наименованием товара, идентификатором заказа, и городом пользователя:");
+        for (Order cL : collectionList) {
+            System.out.println(cL.toString());
+        }
 
 //        -удалите дублированные данные со списка
 
