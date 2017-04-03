@@ -25,7 +25,7 @@ public class Main {
         User user7 = new User(7, "F7", "L7", "C2", 100);
         User user8 = new User(8, "F8", "L8", "AAAA", 100);
         User user9 = new User(9, "F9", "L9", "C2", 100);
-        User user10 = new User(10, "F10", "L10", "C1", 100);
+        User user10 = new User(10, "F10", "Petrov", "C1", 100);
 
         Order order1 = new Order(1, 200, Currency.USD, "I1", "S1", user1);
         Order order2 = new Order(2, 300, Currency.USD, "I9", "S2", user2);
@@ -84,7 +84,7 @@ public class Main {
             System.out.println(cL.toString());
         }
 
-//        -удалите дублированные данные со списка
+//-удалите дублированные данные со списка
         JI.remove(((ArrayList<Order>) collectionList));
 
         System.out.println("\u001B[36m");
@@ -93,15 +93,30 @@ public class Main {
             System.out.println(cL.toString());
         }
 //        -удалите объекты, где цена меньше 1500
+        JI.priceCompare((ArrayList<Order>) collectionList, 1500);
+
+        System.out.println("\u001B[32m");
+        System.out.println("удалите объекты, где цена меньше 1500:");
+        for (Order cL : collectionList) {
+            System.out.println(cL.toString());
+        }
 
 //        - разделите список на 2 списка - заказы в долларах и в гривнах
 
 //        - разделите список на столько списков, сколько уникальных городов в User
 
 //        -проверьте, содержит ли сет заказ, где фамилия пользователя - “Petrov”
+        System.out.println("\u001B[31m");
+        System.out.println("set contain Order where User’s lastName Petrov - " + JI.petroV((ArrayList<Order>) collectionList, "Petrov"));
+
 
 //        -удалите заказы в USD
-
+        JI.noUSD((ArrayList<Order>) collectionList);
+        System.out.println("\u001B[32m");
+        System.out.println("удалите заказы в USD:");
+        for (Order cL : collectionList) {
+            System.out.println(cL.toString());
+        }
 
     }
 
