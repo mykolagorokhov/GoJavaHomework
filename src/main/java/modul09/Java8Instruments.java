@@ -1,8 +1,11 @@
 package modul09;
 
+import modul04.*;
+import modul04.Currency;
 import modul07.task071.Order;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * Created by MYKOLA.GOROKHOV on 30.03.2017.
@@ -63,24 +66,32 @@ public class Java8Instruments {
         });
     }
 
-
     //        -удалите дублированные данные со списка
     public void remove(ArrayList<Order> arrayList) {
         HashSet<Order> clearSet = new HashSet<>(arrayList);
         arrayList.addAll(clearSet);
-
     }
 
-//        -удалите объекты, где цена меньше 1500
-
+    //        -удалите объекты, где цена меньше 1500
+    public void priceCompare(ArrayList<Order> arrayList, int price) {
+        Predicate<Order> pricecComporator = p -> p.getPrice() < price;
+        arrayList.removeIf(pricecComporator);
+    }
 //        - разделите список на 2 списка - заказы в долларах и в гривнах
 
 //        - разделите список на столько списков, сколько уникальных городов в User
 
 //        -проверьте, содержит ли сет заказ, где фамилия пользователя - “Petrov”
+public boolean petroV (ArrayList<Order> arrayList, String lastName){
+    Predicate<Order> petrov = p -> p.getUser().getLastName().equals(lastName);
 
-//        -удалите заказы в USD
-
+    return arrayList.contains(petrov);
+}
+    //        -удалите заказы в USD
+    public void noUSD(ArrayList<Order> arrayList) {
+        Predicate<Order> noUSDPredicate = p -> p.getCurrency() == Currency.USD;
+        arrayList.removeIf(noUSDPredicate);
+    }
 }
 
 
