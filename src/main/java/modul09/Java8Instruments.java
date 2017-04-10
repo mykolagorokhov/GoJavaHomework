@@ -1,11 +1,15 @@
 package modul09;
 
-import modul04.*;
 import modul04.Currency;
 import modul07.task071.Order;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by MYKOLA.GOROKHOV on 30.03.2017.
@@ -32,7 +36,6 @@ import java.util.function.Predicate;
  * Создайте класс Main и протестируйте каждый метод на тестовых данных.
  */
 public class Java8Instruments {
-
 
     //        -отсортируйте список за ценой заказа по убыванию
     public void sort1(List<Order> arrayList) {
@@ -69,7 +72,9 @@ public class Java8Instruments {
     //        -удалите дублированные данные со списка
     public void remove(ArrayList<Order> arrayList) {
         HashSet<Order> clearSet = new HashSet<>(arrayList);
+        arrayList.clear();
         arrayList.addAll(clearSet);
+
     }
 
     //        -удалите объекты, где цена меньше 1500
@@ -77,22 +82,47 @@ public class Java8Instruments {
         Predicate<Order> pricecComporator = p -> p.getPrice() < price;
         arrayList.removeIf(pricecComporator);
     }
-//        - разделите список на 2 списка - заказы в долларах и в гривнах
 
-//        - разделите список на столько списков, сколько уникальных городов в User
+    //        - разделите список на 2 списка - заказы в долларах и в гривнах
+    public ArrayList<ArrayList<Order>> separateCurrency(ArrayList<Order> arrayList) {
 
-//        -проверьте, содержит ли сет заказ, где фамилия пользователя - “Petrov”
-public boolean petroV (ArrayList<Order> arrayList, String lastName){
-    Predicate<Order> petrov = p -> p.getUser().getLastName().equals(lastName);
+        ArrayList<ArrayList<Order>> result = new ArrayList<ArrayList<Order>>();
 
-    return arrayList.contains(petrov);
-}
+        List<Order> usdList = arrayList.stream().filter(p -> p.getCurrency() == Currency.USD).collect(Collectors.toList());
+        List<Order> eurList = arrayList.stream().filter(p -> p.getCurrency() == Currency.EUR).collect(Collectors.toList());
+
+        result.add((ArrayList<Order>) usdList);
+        result.add((ArrayList<Order>) eurList);
+
+        return result;
+    }
+
+
+    //        - разделите список на столько списков, сколько уникальных городов в User
+    public Map<String, ArrayList<Order>> separateCitys(List<Order> arrayList) {
+
+        Map<String, ArrayList<Order>> result = new HashMap();
+
+        List<String> unicCity = arrayList.stream().map(p -> p.getUser().getCity()).distinct().collect(Collectors.toList());
+
+        for (String tt : unicCity) {
+            List<Order> unicCityOrders = arrayList.stream().filter(p -> p.getUser().getCity().equals(tt)).collect(Collectors.toList());
+            result.put(tt, (ArrayList<Order>) unicCityOrders);
+        }
+
+        return result;
+    }
+
+    //        -проверьте, содержит ли сет заказ, где фамилия пользователя - “Petrov”
+    public Long petroV(ArrayList<Order> arrayList, String lastName) {
+        return arrayList.stream().filter(p -> p.getUser().getLastName().equals(lastName)).count();
+    }
+
     //        -удалите заказы в USD
     public void noUSD(ArrayList<Order> arrayList) {
         Predicate<Order> noUSDPredicate = p -> p.getCurrency() == Currency.USD;
         arrayList.removeIf(noUSDPredicate);
     }
+
 }
-
-
 
