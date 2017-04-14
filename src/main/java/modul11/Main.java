@@ -10,19 +10,25 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        WorkWithFiles wwf= new WorkWithFiles();
+        WorkWithFiles wwf = new WorkWithFiles();
         Map<String, String> map = new HashMap<>();
-        map.put("1","2");
-        map.put("a","aa");
+        map.put("1", "2");
+        map.put("a", "bb");
 
+        System.out.println("--checkWord------");
 
+        System.out.println("checkWord : " + wwf.checkWord("2"));
+        System.out.println("--replacer------");
 
-     //   System.out.println(wwf.replacer(map));
-    //    wwf.fileContentReplacer(map);
+        System.out.println("replacer : \n" + wwf.replacer(map));
 
-    //    wwf.fileContentMerger(map);
-        System.out.println("--------");
-        System.out.println(wwf.checkWord("z"));
+//        System.out.println("--fileContentReplacer------");
+//        wwf.fileContentReplacer(map);
+
+        System.out.println("--fileContentMerger------");
+        wwf.fileContentMerger(map);
+        System.out.println("---Final-----");
+
 
     }
 

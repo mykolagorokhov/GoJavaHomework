@@ -57,9 +57,14 @@ public class WorkWithFiles {
         } finally {
             if (in != null) {
                 in.close();
-       //         System.err.println("закрыл");
+                //         System.err.println("закрыл");
             }
         }
+
+        for (String ss : map.keySet()) {
+            result = result.replaceAll(ss, map.get(ss));
+        }
+
 
         return result;
     }
@@ -67,15 +72,21 @@ public class WorkWithFiles {
     //    Задание 2
 //    Создать метод, который заменяет слова в файле (File) и переписать его содержание с новыми значениями.
 //    File fileContentReplacer(Map map)
-    public void fileContentReplacer(Map map) throws IOException {
+    public File fileContentReplacer(Map map) throws IOException {
         String newString = replacer(map);
-        FileWriter myfile = new FileWriter(PATHNAME);
+        FileWriter myfile = null;
 
-        myfile.write(newString);
-
-        myfile.close();
-
-
+        try {
+            myfile = new FileWriter(PATHNAME);
+            myfile.write(newString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (myfile != null) {
+                myfile.close();
+            }
+        }
+        return new File(PATHNAME);
     }
 
 
@@ -85,15 +96,20 @@ public class WorkWithFiles {
     public File fileContentMerger(Map<String, String> map) throws IOException {
 
         String newString = replacer(map);
-        FileWriter myfile = new FileWriter(PATHNAME, true);
+        FileWriter myfile = null;
+        try {
+            myfile = new FileWriter(PATHNAME, true);
+            myfile.append(newString);
+            myfile.flush();
 
-        myfile.append(newString);
-        myfile.flush();
-        myfile.close();
-
-//
-
-        return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (myfile != null) {
+                myfile.close();
+            }
+        }
+        return new File(PATHNAME);
     }
 
 
@@ -103,24 +119,22 @@ public class WorkWithFiles {
 //    Написать это задание с обычным try и try-with-resources(две версии).
     public int checkWord(String word) throws IOException {
 
-        Map tempMap = new HashMap<String, String>();
-        tempMap.put(word, word);
-        String ss = replacer(null);
+        String ss = replacer(new HashMap<String, String>());
 
         int count = 0;
         while (ss.contains(word)) {
             ss = ss.replaceFirst(word, "");
             count++;
         }
-
         return count;
     }
 
+    //-------------------------------------------------------
     public int checkWordResources(String word) {
 
 
         return 0;
     }
 
-
+//-------------------------------------------------------
 }
