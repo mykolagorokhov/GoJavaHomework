@@ -1,6 +1,7 @@
 package modul11;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -36,33 +37,61 @@ import java.util.Map;
  * Write this task with usual try and try with resources (two versions)
  */
 public class WorkWithFiles {
-//    Задание 1
+    private final String PATHNAME = "C:/Users/mykola.gorokhov/IdeaProjects/GoJavaHomework/src/main/java/modul11/tasks.resources";
+
+    //    Задание 1
 //    Создать метод, который заменяет слова в файле (File) и возвращает строку (String) с заменёнными значениями.
 //    String replacer(Map map)
 
-    public String replacer(Map map) throws IOException {
-        try (FileInputStream fs = new FileInputStream("tasks.resources");
+    public String replacer(Map<String, String> map) throws IOException {
+        FileInputStream in = null;
+        String result = "";
+        try {
+            in = new FileInputStream(PATHNAME);
+            int c;
+            while ((c = in.read()) != -1) {
+                result += (char) c;
+            }
+        } catch (IOException e) {
+            System.err.println("Что за наххх: " + e);
+        } finally {
+            if (in != null) {
+                in.close();
+       //         System.err.println("закрыл");
+            }
+        }
 
-      //  BufferedReader bf = new BufferedReader(new FileReader("tasks.resources"));
-
-        return null;
+        return result;
     }
 
     //    Задание 2
 //    Создать метод, который заменяет слова в файле (File) и переписать его содержание с новыми значениями.
 //    File fileContentReplacer(Map map)
-    public File fileContentReplacer(Map map) {
+    public void fileContentReplacer(Map map) throws IOException {
+        String newString = replacer(map);
+        FileWriter myfile = new FileWriter(PATHNAME);
+
+        myfile.write(newString);
+
+        myfile.close();
 
 
-        return null;
     }
 
 
     //    Задание 3
 //    Создать метод, который заменяет слова в файле (File), и вывести результат в существующий контент файла.
 //    File fileContentMerger(Map<String, String> map)
-    public File fileContentMerger(Map<String, String> map) {
+    public File fileContentMerger(Map<String, String> map) throws IOException {
 
+        String newString = replacer(map);
+        FileWriter myfile = new FileWriter(PATHNAME, true);
+
+        myfile.append(newString);
+        myfile.flush();
+        myfile.close();
+
+//
 
         return null;
     }
@@ -72,10 +101,19 @@ public class WorkWithFiles {
 //    Проверить, содержит ли файл конкретное слово. Вывести 0, если нет. Вывести номер n, который эквивалентен числу появлений этого слова в файле.
 //    int checkWord(String word)
 //    Написать это задание с обычным try и try-with-resources(две версии).
-    public int checkWord(String word) {
+    public int checkWord(String word) throws IOException {
 
+        Map tempMap = new HashMap<String, String>();
+        tempMap.put(word, word);
+        String ss = replacer(null);
 
-        return 0;
+        int count = 0;
+        while (ss.contains(word)) {
+            ss = ss.replaceFirst(word, "");
+            count++;
+        }
+
+        return count;
     }
 
     public int checkWordResources(String word) {
