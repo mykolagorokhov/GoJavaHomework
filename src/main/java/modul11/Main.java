@@ -15,20 +15,16 @@ public class Main {
         map.put("1", "2");
         map.put("a", "bb");
 
-        System.out.println("--checkWord------");
-
         System.out.println("checkWord : " + wwf.checkWord("2"));
-        System.out.println("--replacer------");
 
         System.out.println("replacer : \n" + wwf.replacer(map));
-
-//        System.out.println("--fileContentReplacer------");
-//        wwf.fileContentReplacer(map);
+        System.out.println("replacer1 : \n" + wwf.replacer1(map));
+        System.out.println("--fileContentReplacer------");
+        wwf.fileContentReplacer(map);
 
         System.out.println("--fileContentMerger------");
         wwf.fileContentMerger(map);
         System.out.println("---Final-----");
-
 
     }
 

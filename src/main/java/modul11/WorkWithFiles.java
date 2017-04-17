@@ -47,6 +47,7 @@ public class WorkWithFiles {
         FileInputStream in = null;
         String result = "";
         try {
+
             in = new FileInputStream(PATHNAME);
             int c;
             while ((c = in.read()) != -1) {
@@ -130,10 +131,22 @@ public class WorkWithFiles {
     }
 
     //-------------------------------------------------------
-    public int checkWordResources(String word) {
+    String replacer1(Map<String, String> map) throws IOException {
+        String result = "";
+        try (FileInputStream in = new FileInputStream(PATHNAME)) {
+            int c;
+            while ((c = in.read()) != -1) {
+                result += (char) c;
+            }
+        } catch (IOException e) {
+            System.err.println("Что за наххх: " + e);
+        }
 
+        for (String ss : map.keySet()) {
+            result = result.replaceAll(ss, map.get(ss));
+        }
 
-        return 0;
+        return result;
     }
 
 //-------------------------------------------------------
